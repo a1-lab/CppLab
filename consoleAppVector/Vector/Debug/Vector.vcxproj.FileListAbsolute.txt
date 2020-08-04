@@ -1,0 +1,2 @@
+F:\YB\cpp\consoleAppVector\Vector\Debug\Vector.exe
+F:\YB\cpp\consoleAppVector\Vector\Debug\Vector.pdb
