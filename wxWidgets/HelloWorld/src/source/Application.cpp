@@ -1,5 +1,5 @@
-#include "Application.hpp"
-#include "MainFrame.hpp"
+#include "../header/Application.hpp"
+#include "../header/MainFrame.hpp"
 
 IMPLEMENT_APP(Application)
 

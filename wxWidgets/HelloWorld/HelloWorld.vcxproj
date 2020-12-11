@@ -148,15 +148,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Application.hpp" />
-    <ClInclude Include="MainFrame.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Application.cpp" />
-    <ClCompile Include="MainFrame.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="cpp.hint" />
+    <None Include="src\BlueBall.XPM" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\source\Application.cpp" />
+    <ClCompile Include="src\source\MainFrame.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\header\Application.hpp" />
+    <ClInclude Include="src\header\MainFrame.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
