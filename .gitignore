@@ -26,3 +26,6 @@ wxWidgets/HelloWorldWithNoFrame/.vs/HelloWorldWithNoFrame/v16/.suo
 *.recipe
 *.ilk
 wxWidgets/HelloWorldWithNoFrame/Debug/HelloWorldWithNoFrame.vcxproj.FileListAbsolute.txt
+wxWidgets/HelloWorld/.vs/HelloWorld/v16/.suo
+wxWidgets/HelloWorld/Debug/HelloWorld.vcxproj.FileListAbsolute.txt
+wxWidgets/HelloWorld/x64/Debug/HelloWorld.vcxproj.FileListAbsolute.txt
