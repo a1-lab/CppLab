@@ -1,5 +1,6 @@
 #include "../header/MainFrame.hpp"
 #include "../BlueBall.XPM"
+#include "wx/msgdlg.h"
 
 BEGIN_EVENT_TABLE(MainFrame, wxFrame)
 /*OnAbout handler is bound dynamically*/
@@ -34,13 +35,15 @@ MainFrame::MainFrame(const wxString& title) :
 	Centre();
 }
 
+//do not apply sonar rule S995. wx specific code
 void MainFrame::OnQuit(wxCommandEvent& event)
 {
 	Close();
 }
 
+//do not apply sonar rules S995, S5817. wx specific code
 void MainFrame::OnAbout(wxCommandEvent& event)
 {
-	event.Skip();
-	wxBell();
+	wxMessageBox(wxT("Simple Hello App"),
+		wxT("About Information"));
 }
