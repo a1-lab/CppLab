@@ -1,0 +1,12 @@
+// Файлы указаний помогают среде IDE Visual Studio интерпретировать идентификаторы Visual C++
+// (например, имена функций и макросов).
+// Дополнительные сведения: https://go.microsoft.com/fwlink/?linkid=865984
+#define IMPLEMENT_APP(app) wxIMPLEMENT_APP(app);
+#define wxT(x)
+#define wxT(x) wxCONCAT_HELPER(L, x)
+#define wxT(x) wxPREPEND_L(x)
+#define BEGIN_EVENT_TABLE(a, b) wxBEGIN_EVENT_TABLE(a,b)
+#define EVT_MENU(winid, func) wx__DECLARE_EVT1(wxEVT_MENU, winid, wxCommandEventHandler(func))
+#define END_EVENT_TABLE() wxEND_EVENT_TABLE()
+#define wxEVT_COMMAND_MENU_SELECTED
+#define wxCommandEventHandler(func) wxEVENT_HANDLER_CAST(wxCommandEventFunction, func)
