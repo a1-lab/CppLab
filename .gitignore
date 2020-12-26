@@ -32,3 +32,9 @@ wxWidgets/HelloWorld/x64/Debug/HelloWorld.vcxproj.FileListAbsolute.txt
 wxWidgets/LabLayout/.vs/LabLayout/v16/.suo
 wxWidgets/LabLayout/Debug/HelloWorld.vcxproj.FileListAbsolute.txt
 wxWidgets/LabLayout/Debug/LabLayout.vcxproj.FileListAbsolute.txt
+wxWidgets/LabSizer/.vs/LabSizer/v16/.suo
+wxWidgets/ToolBar/.vs/ToolBar/v16/.suo
+.vs/ProjectSettings.json
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+wxWidgets/ToolBar/Debug/ToolBar.vcxproj.FileListAbsolute.txt
