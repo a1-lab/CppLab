@@ -10,3 +10,4 @@
 #define END_EVENT_TABLE() wxEND_EVENT_TABLE()
 #define wxEVT_COMMAND_MENU_SELECTED
 #define wxCommandEventHandler(func) wxEVENT_HANDLER_CAST(wxCommandEventFunction, func)
+#define WXUNUSED(identifier)

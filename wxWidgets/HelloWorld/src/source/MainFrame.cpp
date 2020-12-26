@@ -36,13 +36,13 @@ MainFrame::MainFrame(const wxString& title) :
 }
 
 //do not apply sonar rule S995. wx specific code
-void MainFrame::OnQuit(wxCommandEvent& event)
+void MainFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
 {
 	Close();
 }
 
 //do not apply sonar rules S995, S5817. wx specific code
-void MainFrame::OnAbout(wxCommandEvent& event)
+void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 {
 	wxMessageBox(wxT("Simple Hello App"),
 		wxT("About Information"));
