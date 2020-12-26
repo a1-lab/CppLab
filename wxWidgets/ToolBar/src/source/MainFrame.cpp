@@ -1,4 +1,5 @@
 #include "../header/MainFrame.hpp"
+#include "../header/MainToolBar.h"
 #include "../BlueBall.XPM"
 #include "wx/msgdlg.h"
 #include "wx/toolbar.h"
