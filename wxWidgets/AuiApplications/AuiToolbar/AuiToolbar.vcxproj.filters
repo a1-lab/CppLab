@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\customization">
+      <UniqueIdentifier>{4c2bb337-7d49-4d45-a888-3b747f35aba7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\customization">
+      <UniqueIdentifier>{df56a864-97ee-400e-9c21-88dbc76c7413}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp">
@@ -21,6 +27,12 @@
     <ClInclude Include="src\header\MainFrame.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="src\header\Ids.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\customization\CustomArtProvider.hpp">
+      <Filter>Файлы заголовков\customization</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\source\Application.cpp">
@@ -28,6 +40,9 @@
     </ClCompile>
     <ClCompile Include="src\source\MainFrame.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\customization\CustomArtProvider.cpp">
+      <Filter>Исходные файлы\customization</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

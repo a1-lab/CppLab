@@ -10,5 +10,12 @@ public:
 	void OnAbout(wxCommandEvent&);
 private:
 	wxAuiManager m_mgr;
+	wxAuiToolBarItemArray prepend_items;
+	wxAuiToolBarItemArray append_items;
+
+	void CreateMainMenu();
+	void CreateMainToolbar();
+	void CreateToolbarSizeAndScale();
+	void CreateSeveralPanes();
 	DECLARE_EVENT_TABLE();
 };
