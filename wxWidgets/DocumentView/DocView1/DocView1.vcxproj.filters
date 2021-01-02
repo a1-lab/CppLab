@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы заголовков\docview">
+      <UniqueIdentifier>{f8e7ca4f-9919-47c3-918d-9ecfe840ba1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\docview">
+      <UniqueIdentifier>{553feb82-2ad2-46e9-a8a7-17f1cbdf1ed2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp">
@@ -21,13 +27,25 @@
     <ClInclude Include="src\header\MainFrame.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="src\header\docview\Document.hpp">
+      <Filter>Файлы заголовков\docview</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\docview\View.hpp">
+      <Filter>Файлы заголовков\docview</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\source\Application.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\header\MainFrame.cpp">
+    <ClCompile Include="src\source\MainFrame.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\docview\Document.cpp">
+      <Filter>Исходные файлы\docview</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\docview\View.cpp">
+      <Filter>Исходные файлы\docview</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
