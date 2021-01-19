@@ -3,3 +3,22 @@
 // Дополнительные сведения: https://go.microsoft.com/fwlink/?linkid=865984
 #define IMPLEMENT_APP(app) wxIMPLEMENT_APP(app);
 #define CanvasStyle
+#define CanvasName wxT("Canvas")
+#define IMPLEMENT_DYNAMIC_CLASS(n, b) wxIMPLEMENT_DYNAMIC_CLASS(n,b)
+#define BEGIN_EVENT_TABLE(a, b) wxBEGIN_EVENT_TABLE(a,b)
+#define END_EVENT_TABLE() wxEND_EVENT_TABLE()
+#define DECLARE_EVENT_TABLE() wxDECLARE_EVENT_TABLE();
+#define DECLARE_DYNAMIC_CLASS(n) wxDECLARE_DYNAMIC_CLASS(n);
+#define EVT_SCROLLWIN_LINEUP(func) wx__DECLARE_EVT0(wxEVT_SCROLLWIN_LINEUP, wxScrollWinEventHandler(func))
+#define EVT_SCROLLWIN_LINEDOWN(func) wx__DECLARE_EVT0(wxEVT_SCROLLWIN_LINEDOWN, wxScrollWinEventHandler(func))
+#define EVT_SCROLLWIN_THUMBRELEASE(func) wx__DECLARE_EVT0(wxEVT_SCROLLWIN_THUMBRELEASE, wxScrollWinEventHandler(func))
+#define EVT_SCROLLWIN_PAGEUP(func) wx__DECLARE_EVT0(wxEVT_SCROLLWIN_PAGEUP, wxScrollWinEventHandler(func))
+#define EVT_SCROLLWIN_PAGEDOWN(func) wx__DECLARE_EVT0(wxEVT_SCROLLWIN_PAGEDOWN, wxScrollWinEventHandler(func))
+#define EVT_SCROLLWIN_THUMBTRACK(func) wx__DECLARE_EVT0(wxEVT_SCROLLWIN_THUMBTRACK, wxScrollWinEventHandler(func))
+#define EVT_PAINT(func) wx__DECLARE_EVT0(wxEVT_PAINT, wxPaintEventHandler(func))
+#define EVT_IDLE(func) wx__DECLARE_EVT0(wxEVT_IDLE, wxIdleEventHandler(func))
+#define EVT_ERASE_BACKGROUND(func) wx__DECLARE_EVT0(wxEVT_ERASE_BACKGROUND, wxEraseEventHandler(func))
+#define EVT_LEFT_DOWN(func) wx__DECLARE_EVT0(wxEVT_LEFT_DOWN, wxMouseEventHandler(func))
+#define EVT_LEFT_UP(func) wx__DECLARE_EVT0(wxEVT_LEFT_UP, wxMouseEventHandler(func))
+#define EVT_MOTION(func) wx__DECLARE_EVT0(wxEVT_MOTION, wxMouseEventHandler(func))
+#define EVT_MENU(winid, func) wx__DECLARE_EVT1(wxEVT_MENU, winid, wxCommandEventHandler(func))

@@ -6,11 +6,14 @@
 IMPLEMENT_APP(Application)
 
 bool Application::OnInit() {
+	wxImage::AddHandler(new wxXPMHandler);
+	wxImage::AddHandler(new wxPNGHandler);
+	wxImage::AddHandler(new wxJPEGHandler);
 	m_DocManager = new wxDocManager();
 	m_DocManager->SetMaxDocsOpen(1);
 	wxDocTemplate* docTemplate = new
 		wxDocTemplate(m_DocManager, _("DocViewTest Document"),
-			wxT("*.png;*.bmp;*.tiff;*.tif;*.jpg;*.jpeg"), wxEmptyString,
+			wxT("*.png;*.bmp;*.jpg;*.jpeg"), wxEmptyString,
 			wxT("png"), wxT("DocViewTest Doc"), wxT("DocViewTest View"),
 			CLASSINFO(Document), CLASSINFO(View));
 
@@ -24,5 +27,5 @@ bool Application::OnInit() {
 
 int Application::OnExit() {
 	wxDELETE(m_DocManager);
-	return 0;
+	return wxApp::OnExit();
 }

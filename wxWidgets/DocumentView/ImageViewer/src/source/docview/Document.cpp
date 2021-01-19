@@ -1,11 +1,12 @@
-#include "Document.hpp"
+#include "wx/imagpng.h"
 #include "wx/log.h"
+#include "Document.hpp"
 
 IMPLEMENT_DYNAMIC_CLASS(Document, wxDocument)
 
 Document::Document()
 {
-	wxLogMessage(wxT("DocViewTestDocument::DocViewTestDocument"));
+	wxImage::AddHandler(new wxPNGHandler());
 }
 
 wxInputStream& Document::LoadObject(wxInputStream& stream)

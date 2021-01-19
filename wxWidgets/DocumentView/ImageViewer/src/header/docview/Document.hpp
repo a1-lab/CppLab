@@ -5,9 +5,10 @@
 class Document : public wxDocument {
 public:
 	Document();
-	wxInputStream& LoadObject(wxInputStream&);
+	wxInputStream& LoadObject(wxInputStream& stream) override;
 	wxImage& GetImage();
-private:
+
 	DECLARE_DYNAMIC_CLASS(Document);
+private:
 	wxImage m_Image;
 };

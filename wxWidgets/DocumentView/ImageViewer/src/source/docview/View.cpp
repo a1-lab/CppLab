@@ -1,18 +1,20 @@
-#include "View.hpp"
+#include "Application.hpp"
 #include "MainFrame.hpp"
+#include "View.hpp"
+#include "Document.hpp"
+#include "Canvas.hpp"
 
 IMPLEMENT_DYNAMIC_CLASS(View, wxView)
 
 View::View()
 {
-	m_Canvas = nullptr;
-
-	MainFrame* mainFrame = wxDynamicCast(wxTheApp->GetTopWindow(), MainFrame);
+	MainFrame* mainFrame = wxDynamicCast(wxGetApp().GetTopWindow(),
+		MainFrame);
 
 	if (mainFrame)
 	{
 		SetFrame(mainFrame);
-		m_Canvas = mainFrame->m_Canvas;
+		m_Canvas = mainFrame->GetCanvas();
 		m_Canvas->SetView(this);
 	}
 	else
@@ -23,27 +25,71 @@ View::View()
 
 void View::OnDraw(wxDC* dc)
 {
-	wxLogMessage(wxT("View::OnDraw()"));
+	if (m_ScaledBitmap.IsOk()) {
+		dc->DrawBitmap(m_ScaledBitmap,
+			m_ViewOffset.GetWidth(), m_ViewOffset.GetHeight());
+	}
 }
 
 void View::OnUpdate(wxView* sender, wxObject* hint)
 {
-	wxLogMessage(wxT("View::onUpdate()"));
+	RecreateScaledBitmap();
+	if (m_Canvas) {
+		m_Canvas->AdjustScrollBars();
+		m_Canvas->Refresh();
+	}
 }
 
 bool View::OnClose(bool deleteWindow)
 {
-	wxLogMessage(wxT("View::OnClose"));
 	if (!GetDocument()->Close())
 	{
 		return false;
 	}
 
-	SetFrame(NULL);
+	if (m_Canvas) {
+		m_Canvas->ClearBackground();
+		m_Canvas->SetView(nullptr);
+		m_Canvas = nullptr;
+	}
+
+	wxFrame* frame = wxDynamicCast(GetFrame(), wxFrame);
+	if (frame) {
+		frame->SetTitle(MAIN_FRAME_TITLE);
+	}
+
+	SetFrame(nullptr);
 	Activate(false);
 	return true;
 }
 
-void View::ReCreateScaledBitmap()
+wxBitmap& View::GetScaledBitmap()
 {
+	return m_ScaledBitmap;
+}
+
+const wxSize& View::GetViewOffset() const
+{
+	return m_ViewOffset;
+}
+
+void View::SetViewOffset(const wxSize& value)
+{
+	m_ViewOffset = value;
+}
+
+void View::RecreateScaledBitmap()
+{
+	Document* document = wxDynamicCast(GetDocument(), Document);
+	if (document) {
+		int width = document->GetImage().GetWidth();
+		int height = document->GetImage().GetHeight();
+		wxSize scaledSize(width * m_Scale, height * m_Scale);
+
+		m_ScaledBitmap = wxBitmap(document->GetImage().
+			Scale(scaledSize.GetWidth(), scaledSize.GetHeight()));
+	}
+	else {
+		m_ScaledBitmap = wxNullBitmap;
+	}
 }

@@ -9,23 +9,24 @@ class Canvas;
 
 class MainFrame : public wxDocParentFrame {
 public:
-	MainFrame();
+	MainFrame() = default;
 	MainFrame(wxDocManager* docManager, wxFrame* parent,
 		wxWindowID id = wxID_ANY,
 		const wxString& title = MAIN_FRAME_TITLE);
-	~MainFrame();
+	~MainFrame() override;
 
 	bool Create(wxDocManager* docManager, wxFrame* parent,
 		wxWindowID id = wxID_ANY,
 		const wxString& title = MAIN_FRAME_TITLE);
+
 	void OnExit(wxCommandEvent& event);
 
 	Canvas* GetCanvas();
 private:
 	wxAuiManager m_AuiManager;
+	Canvas* m_Canvas = nullptr;
 	void CreateControls();
 	wxMenuBar* CreateMenuBar();
-	Canvas* m_Canvas;
 
 	DECLARE_DYNAMIC_CLASS(MainFrame);
 	DECLARE_EVENT_TABLE();
