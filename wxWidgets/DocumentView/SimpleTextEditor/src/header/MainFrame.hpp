@@ -7,6 +7,11 @@
 
 class MainFrame : public wxDocParentFrame {
 public:
+	enum
+	{
+		ID_EDITOR = wxID_HIGHEST + 1
+	};
+
 	MainFrame();
 	MainFrame(wxDocManager* docManager, wxFrame* parent,
 		wxWindowID id = wxID_ANY,
@@ -20,6 +25,9 @@ private:
 	wxAuiManager m_AuiManager;
 	void CreateControls();
 	wxMenuBar* CreateMenuBar();
+
+	wxTextCtrl* m_Editor;
+
 	DECLARE_DYNAMIC_CLASS(MainFrame);
 	DECLARE_EVENT_TABLE();
 };
