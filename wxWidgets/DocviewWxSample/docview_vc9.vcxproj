@@ -500,12 +500,13 @@
     <ClCompile Include="src\source\view.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="docview.rc" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="src\header\application.hpp" />
     <ClInclude Include="src\header\doc.hpp" />
     <ClInclude Include="src\header\view.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="docview.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
