@@ -5,9 +5,11 @@
 class View : public wxView {
 public:
 	View();
+
+	wxTextCtrl* GetEditor();
 	void OnDraw(wxDC* dc) override;
-	void OnUpdate(wxView* sender, wxObject* hint = NULL) override;
+	void OnUpdate(wxView* sender, wxObject* hint) override;
 	bool OnClose(bool deleteWindow = true) override;
-private:
+
 	DECLARE_DYNAMIC_CLASS(View)
 };

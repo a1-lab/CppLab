@@ -30,6 +30,11 @@ bool MainFrame::Create(wxDocManager* docManager, wxFrame* parent, wxWindowID id,
 	return res;
 }
 
+wxTextCtrl* MainFrame::GetEditor()
+{
+	return m_Editor;
+}
+
 void MainFrame::OnExit(wxCommandEvent& event)
 {
 	Close();
