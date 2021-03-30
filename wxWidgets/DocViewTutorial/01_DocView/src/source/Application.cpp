@@ -1,5 +1,7 @@
 #include "Application.hpp"
 #include "MainFrame.hpp"
+//wxmemdbg.h must be the last one in include list
+#include "wxmemdbg.h"
 
 IMPLEMENT_APP(Application)
 

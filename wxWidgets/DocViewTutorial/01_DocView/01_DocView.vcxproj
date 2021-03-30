@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp" />
     <ClInclude Include="src\header\MainFrame.hpp" />
+    <ClInclude Include="src\header\wxmemdbg.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\source\Application.cpp" />
