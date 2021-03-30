@@ -7,4 +7,6 @@
 class MainFrame : public wxDocParentFrame {
 public:
 	MainFrame(wxDocManager* manager, const wxSize& size);
+private:
+	void CreateMenu();
 };

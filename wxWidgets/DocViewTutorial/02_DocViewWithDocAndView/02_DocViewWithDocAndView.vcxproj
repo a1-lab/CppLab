@@ -148,14 +148,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp" />
-    <ClInclude Include="src\header\docview\Documet.hpp" />
+    <ClInclude Include="src\header\docview\Document.hpp" />
     <ClInclude Include="src\header\docview\View.hpp" />
     <ClInclude Include="src\header\MainFrame.hpp" />
     <ClInclude Include="src\header\wxmemdbg.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\source\Application.cpp" />
+    <ClCompile Include="src\source\docview\Document.cpp" />
+    <ClCompile Include="src\source\docview\View.cpp" />
     <ClCompile Include="src\source\MainFrame.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
