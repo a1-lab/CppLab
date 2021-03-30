@@ -1,0 +1,8 @@
+Memory Leak Detection in wxWidgets App
+
+To detect memory leak do the following:
+1. copy wxmemdbg.h to your project
+2. include wxmemdbg.h to all project files or at least at files
+   where memory could possible be.
+   
+wxmemdbg.h must be the last one in include list.
