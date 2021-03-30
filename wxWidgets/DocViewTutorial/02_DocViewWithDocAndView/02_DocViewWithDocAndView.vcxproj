@@ -148,6 +148,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp" />
+    <ClInclude Include="src\header\docview\Documet.hpp" />
+    <ClInclude Include="src\header\docview\View.hpp" />
     <ClInclude Include="src\header\MainFrame.hpp" />
     <ClInclude Include="src\header\wxmemdbg.h" />
   </ItemGroup>

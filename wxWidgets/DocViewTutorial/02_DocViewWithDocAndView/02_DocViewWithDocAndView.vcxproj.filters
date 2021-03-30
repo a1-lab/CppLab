@@ -30,6 +30,12 @@
     <ClInclude Include="src\header\wxmemdbg.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="src\header\docview\Documet.hpp">
+      <Filter>Файлы заголовков\docview</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\docview\View.hpp">
+      <Filter>Файлы заголовков\docview</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\source\Application.cpp">
