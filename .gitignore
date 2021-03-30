@@ -45,3 +45,6 @@ wxWidgets/AuiToolBar/Debug/AuiToolBar.vcxproj.FileListAbsolute.txt
 wxWidgets/AuiApplications/.vs/AuiApplications/v16/.suo
 wxWidgets/AuiApplications/AuiToolbar/Debug/AuiToolbar.vcxproj.FileListAbsolute.txt
 wxWidgets/DocumentView/.vs/DocumentView/v16/.suo
+wxWidgets/DocViewTutorial/01_DocView/Debug/01_DocView.vcxproj.FileListAbsolute.txt
+wxWidgets/DocViewTutorial/01_DocView/Release/01_DocView.vcxproj.FileListAbsolute.txt
+wxWidgets/DocViewTutorial/01_DocView/.vs/01_DocView/v16/.suo
