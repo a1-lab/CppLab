@@ -19,6 +19,12 @@
     <Filter Include="Исходные файлы\docview">
       <UniqueIdentifier>{2e420078-c81f-4d6d-836b-9d836ab7bad0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\canvas">
+      <UniqueIdentifier>{826610a8-062b-4fe0-90af-8cc1a22445bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\canvas">
+      <UniqueIdentifier>{9a49994e-59ed-4397-8d46-fac2c45fcca7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp">
@@ -36,6 +42,9 @@
     <ClInclude Include="src\header\docview\View.hpp">
       <Filter>Файлы заголовков\docview</Filter>
     </ClInclude>
+    <ClInclude Include="src\header\canvas\DoodleCanvas.hpp">
+      <Filter>Файлы заголовков\canvas</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\source\Application.cpp">
@@ -50,5 +59,11 @@
     <ClCompile Include="src\source\docview\View.cpp">
       <Filter>Исходные файлы\docview</Filter>
     </ClCompile>
+    <ClCompile Include="src\source\canvas\DoodleCanvas.cpp">
+      <Filter>Исходные файлы\canvas</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
