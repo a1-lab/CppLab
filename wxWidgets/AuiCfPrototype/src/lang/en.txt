@@ -1,0 +1,4 @@
+[Menu]
+File=&File
+View=&View
+[File]

@@ -72,19 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)src\header;$(WXWIN)\include;$(WXWIN)\include\msvc;$(IncludePath)</IncludePath>
+    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)src\header;$(WXWIN)\include;$(WXWIN)\include\msvc;$(IncludePath)</IncludePath>
+    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)src\header;$(WXWIN)\include;$(WXWIN)\include\msvc;$(IncludePath)</IncludePath>
+    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)src\header;$(WXWIN)\include;$(WXWIN)\include\msvc;$(IncludePath)</IncludePath>
+    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -151,11 +151,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\source\Application.cpp" />
+    <ClCompile Include="src\source\CFArtProvider.cpp" />
     <ClCompile Include="src\source\MainFrame.cpp" />
+    <ClCompile Include="src\source\menu\file_menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp" />
+    <ClInclude Include="src\header\CFArtProvider.hpp" />
+    <ClInclude Include="src\header\Ids.h" />
     <ClInclude Include="src\header\MainFrame.hpp" />
+    <ClInclude Include="src\header\resource\Strings.h" />
     <ClInclude Include="src\header\wxmemdbg.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

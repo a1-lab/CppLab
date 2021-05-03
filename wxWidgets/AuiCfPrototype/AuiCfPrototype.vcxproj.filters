@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\menu">
+      <UniqueIdentifier>{d36660d8-c174-493f-981d-b2ec9170b8f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\resource">
+      <UniqueIdentifier>{4e339cf7-1351-4f1c-973a-683bc75197f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -24,6 +30,12 @@
     <ClCompile Include="src\source\MainFrame.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="src\source\CFArtProvider.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\menu\file_menu.cpp">
+      <Filter>Исходные файлы\menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp">
@@ -34,6 +46,15 @@
     </ClInclude>
     <ClInclude Include="src\header\wxmemdbg.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\Ids.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\CFArtProvider.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\resource\Strings.h">
+      <Filter>Файлы заголовков\resource</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
