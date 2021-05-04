@@ -3,25 +3,26 @@
 #include "Strings.h"
 #include "Ids.h"
 
-wxMenu* createFileMenu() {
+wxMenu* createEditMenu() {
 
 	auto result = new wxMenu();
 	Application& app = wxGetApp();
-
-	result->Append(wxID_EXIT,
-		app.getText(FILE_SECTION,
-			FILE_EXIT_KEY, FILE_EXIT_DEF_VALUE),
-		app.getText(FILE_SECTION,
-			FILE_EXIT_HELP_KEY, FILE_EXIT_HELP_DEF_VALUE));
-
+	/*
+		result->Append(wxID_EXIT,
+			app.getText(FILE_SECTION,
+				FILE_EXIT_KEY, FILE_EXIT_DEF_VALUE),
+			app.getText(FILE_SECTION,
+				FILE_EXIT_HELP_KEY, FILE_EXIT_HELP_DEF_VALUE));
+	*/
 	return result;
 }
 
-void updateFileMenu(wxMenu* menu) {
+void updateEditMenu(wxMenu* menu) {
 	Application& app = wxGetApp();
-
+	/*
 	menu->SetLabel(wxID_EXIT, app.getText(FILE_SECTION,
 		FILE_EXIT_KEY, FILE_EXIT_DEF_VALUE));
 	menu->SetHelpString(wxID_EXIT, app.getText(FILE_SECTION,
 		FILE_EXIT_HELP_KEY, FILE_EXIT_HELP_DEF_VALUE));
+	*/
 }

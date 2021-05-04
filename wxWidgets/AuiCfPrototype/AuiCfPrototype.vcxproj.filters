@@ -36,6 +36,24 @@
     <ClCompile Include="src\source\menu\file_menu.cpp">
       <Filter>Исходные файлы\menu</Filter>
     </ClCompile>
+    <ClCompile Include="src\source\menu\view_menu.cpp">
+      <Filter>Исходные файлы\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\menu\edit_menu.cpp">
+      <Filter>Исходные файлы\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\menu\configuration_menu.cpp">
+      <Filter>Исходные файлы\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\menu\effects_menu.cpp">
+      <Filter>Исходные файлы\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\menu\help_menu.cpp">
+      <Filter>Исходные файлы\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\menu\window_menu.cpp">
+      <Filter>Исходные файлы\menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp">
@@ -54,6 +72,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\header\resource\Strings.h">
+      <Filter>Файлы заголовков\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\resource\Settings.h">
       <Filter>Файлы заголовков\resource</Filter>
     </ClInclude>
   </ItemGroup>

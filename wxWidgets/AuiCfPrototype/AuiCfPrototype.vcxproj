@@ -153,13 +153,20 @@
     <ClCompile Include="src\source\Application.cpp" />
     <ClCompile Include="src\source\CFArtProvider.cpp" />
     <ClCompile Include="src\source\MainFrame.cpp" />
+    <ClCompile Include="src\source\menu\configuration_menu.cpp" />
+    <ClCompile Include="src\source\menu\edit_menu.cpp" />
+    <ClCompile Include="src\source\menu\effects_menu.cpp" />
     <ClCompile Include="src\source\menu\file_menu.cpp" />
+    <ClCompile Include="src\source\menu\help_menu.cpp" />
+    <ClCompile Include="src\source\menu\view_menu.cpp" />
+    <ClCompile Include="src\source\menu\window_menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp" />
     <ClInclude Include="src\header\CFArtProvider.hpp" />
     <ClInclude Include="src\header\Ids.h" />
     <ClInclude Include="src\header\MainFrame.hpp" />
+    <ClInclude Include="src\header\resource\Settings.h" />
     <ClInclude Include="src\header\resource\Strings.h" />
     <ClInclude Include="src\header\wxmemdbg.h" />
   </ItemGroup>

@@ -12,14 +12,18 @@ class Application : public wxApp {
 public:
 	bool OnInit() override;
 	int OnExit() override;
-	void loadLanguage(const Lang lang);
+	void loadLanguage(const Lang lang, bool updateText = false);
 	wxString getText(wxString groupId, wxString textId,
 		wxString defValue);
+	void loadSettingsFile();
 private:
 	MainFrame* m_mainFrame = nullptr;
 	wxDocManager* m_docManager = nullptr;
 	wxFileConfig* langFile = nullptr;
 	Lang currentLanguage = Lang::NONE;
+	wxFileConfig* appSettingsFile = nullptr;
+
+	Lang getLang();
 };
 
 DECLARE_APP(Application)

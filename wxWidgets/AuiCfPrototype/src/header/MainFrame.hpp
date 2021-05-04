@@ -10,15 +10,18 @@ class MainFrame : public wxDocParentFrame {
 public:
 	MainFrame(wxDocManager* manager, const wxSize& size);
 	virtual ~MainFrame();
+	// UpdateMainMenu вызывается после смены языка
+	void UpdateMainMenu();
 private:
+	void CreateMainMenu();
+	void CreateMainToolbar();
+	void CreateToolbarSizeAndScale();
+
 	//m_auiManager is created on stack.
 	//i.e. automatically created and deleted.
 	wxAuiManager m_auiManager;
 	wxAuiDefaultToolBarArt* m_toolbarArt = nullptr;
 	wxAuiToolBarItemArray prepend_items;
 	wxAuiToolBarItemArray append_items;
-
-	void CreateMainMenu();
-	void CreateMainToolbar();
-	void CreateToolbarSizeAndScale();
+	wxMenuBar* m_menuBar = new wxMenuBar();
 };

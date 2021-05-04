@@ -5,6 +5,20 @@
 #include "Ids.h"
 
 wxMenu* createFileMenu();
+void updateFileMenu(wxMenu* menu);
+wxMenu* createViewMenu();
+void updateViewMenu(wxMenu* menu);
+wxMenu* createEditMenu();
+void updateEditMenu(wxMenu* menu);
+wxMenu* createEffectsMenu();
+void updateEffectsMenu(wxMenu* menu);
+wxMenu* createConfigurationMenu();
+void updateConfigurationMenu(wxMenu* menu);
+wxMenu* createHelpMenu();
+void updateHelpMenu(wxMenu* menu);
+wxMenu* createWindowMenu();
+void updateWindowMenu(wxMenu* menu);
+
 
 MainFrame::MainFrame(wxDocManager* manager,
 	const wxSize& size) : wxDocParentFrame(manager, nullptr,
@@ -22,6 +36,7 @@ MainFrame::MainFrame(wxDocManager* manager,
 	m_auiManager.Update();
 
 	CreateMainMenu();
+	CreateStatusBar(1);
 	//ShowFullScreen(true, wxFULLSCREEN_NOCAPTION);
 }
 
@@ -36,27 +51,71 @@ void MainFrame::CreateMainMenu()
 	Application& app = wxGetApp();
 
 	auto fileMenu = createFileMenu();
-	/*auto viewMenu = new wxMenu();
-	auto editMenu = new wxMenu();
-	auto effectsMenu = new wxMenu();
-	auto configurationMenu = new wxMenu();
-	auto helpMenu = new wxMenu();*/
+	auto viewMenu = createViewMenu();
+	auto editMenu = createEditMenu();
+	auto effectsMenu = createEffectsMenu();
+	auto configurationMenu = createConfigurationMenu();
+	auto helpMenu = createHelpMenu();
+	auto windowMenu = createWindowMenu();
 
-	auto menuBar = new wxMenuBar();
-	menuBar->Append(fileMenu, app.getText(MENU_SECTION,
+
+	m_menuBar->Append(fileMenu, app.getText(MENU_SECTION,
 		MENU_FILE_KEY, MENU_FILE_DEF_VALUE));
+	m_menuBar->Append(viewMenu, app.getText(MENU_SECTION,
+		MENU_VIEW_KEY, MENU_VIEW_DEF_VALUE));
+	m_menuBar->Append(editMenu, app.getText(MENU_SECTION,
+		MENU_EDIT_KEY, MENU_EDIT_DEF_VALUE));
+	m_menuBar->Append(effectsMenu, app.getText(MENU_SECTION,
+		MENU_EFFECTS_KEY, MENU_EFFECTS_DEF_VALUE));
+	m_menuBar->Append(configurationMenu, app.getText(MENU_SECTION,
+		MENU_CONFIGURATION_KEY, MENU_CONFIGURATION_DEF_VALUE));
+	m_menuBar->Append(windowMenu, app.getText(MENU_SECTION,
+		MENU_WINDOW_KEY, MENU_WINDOW_DEF_VALUE));
+	m_menuBar->Append(helpMenu, app.getText(MENU_SECTION,
+		MENU_HELP_KEY, MENU_HELP_DEF_VALUE));
 
-	/*	menuBar->Append(viewMenu, MENU_VIEW_TITLE);
-	menuBar->Append(editMenu, MENU_EDIT_TITLE);
-	menuBar->Append(effectsMenu, MENU_EFFECTS_TITLE);
-	menuBar->Append(configurationMenu, MENU_CONFIGURATION_TITLE);
-	menuBar->Append(helpMenu, MENU_HELP_TITLE);*/
+	SetMenuBar(m_menuBar);
+}
 
-	/*
-	helpMenu->Append(wxID_ABOUT, wxT("&About\tF1"),
-		wxT("About"));
-	*/
-	SetMenuBar(menuBar);
+void MainFrame::UpdateMainMenu()
+{
+	Application& app = wxGetApp();
+
+	wxMenu* menu = nullptr;
+	m_menuBar->SetMenuLabel(ID_MENU_FILE, app.getText(MENU_SECTION,
+		MENU_FILE_KEY, MENU_FILE_DEF_VALUE));
+	menu = m_menuBar->GetMenu(ID_MENU_FILE);
+	updateFileMenu(menu);
+
+	m_menuBar->SetMenuLabel(ID_MENU_VIEW, app.getText(MENU_SECTION,
+		MENU_VIEW_KEY, MENU_VIEW_DEF_VALUE));
+	menu = m_menuBar->GetMenu(ID_MENU_VIEW);
+	updateViewMenu(menu);
+
+	m_menuBar->SetMenuLabel(ID_MENU_EDIT, app.getText(MENU_SECTION,
+		MENU_EDIT_KEY, MENU_EDIT_DEF_VALUE));
+	menu = m_menuBar->GetMenu(ID_MENU_EDIT);
+	updateEditMenu(menu);
+
+	m_menuBar->SetMenuLabel(ID_MENU_EFFECTS, app.getText(MENU_SECTION,
+		MENU_EFFECTS_KEY, MENU_EFFECTS_DEF_VALUE));
+	menu = m_menuBar->GetMenu(ID_MENU_EFFECTS);
+	updateEditMenu(menu);
+
+	m_menuBar->SetMenuLabel(ID_MENU_CONFIGURATION, app.getText(MENU_SECTION,
+		MENU_CONFIGURATION_KEY, MENU_CONFIGURATION_DEF_VALUE));
+	menu = m_menuBar->GetMenu(ID_MENU_CONFIGURATION);
+	updateEditMenu(menu);
+
+	m_menuBar->SetMenuLabel(ID_MENU_WINDOW, app.getText(MENU_SECTION,
+		MENU_WINDOW_KEY, MENU_WINDOW_DEF_VALUE));
+	menu = m_menuBar->GetMenu(ID_MENU_WINDOW);
+	updateEditMenu(menu);
+
+	m_menuBar->SetMenuLabel(ID_MENU_HELP, app.getText(MENU_SECTION,
+		MENU_HELP_KEY, MENU_HELP_DEF_VALUE));
+	menu = m_menuBar->GetMenu(ID_MENU_HELP);
+	updateEditMenu(menu);
 }
 
 void MainFrame::CreateMainToolbar()
