@@ -66,7 +66,7 @@ void Application::loadLanguage(const Lang lang, bool updateText)
 }
 
 wxString Application::getText(wxString groupId, wxString textId,
-	wxString defValue)
+	wxString defValue) const
 {
 	if (nullptr == langFile) {
 		return defValue;

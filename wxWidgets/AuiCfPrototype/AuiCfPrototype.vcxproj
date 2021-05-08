@@ -166,6 +166,7 @@
     <ClInclude Include="src\header\CFArtProvider.hpp" />
     <ClInclude Include="src\header\Ids.h" />
     <ClInclude Include="src\header\MainFrame.hpp" />
+    <ClInclude Include="src\header\resource\CFArtId.h" />
     <ClInclude Include="src\header\resource\Settings.h" />
     <ClInclude Include="src\header\resource\Strings.h" />
     <ClInclude Include="src\header\wxmemdbg.h" />

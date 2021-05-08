@@ -77,5 +77,8 @@
     <ClInclude Include="src\header\resource\Settings.h">
       <Filter>Файлы заголовков\resource</Filter>
     </ClInclude>
+    <ClInclude Include="src\header\resource\CFArtId.h">
+      <Filter>Файлы заголовков\resource</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

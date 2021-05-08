@@ -6,7 +6,7 @@
 wxMenu* createConfigurationMenu() {
 
 	auto result = new wxMenu();
-	Application& app = wxGetApp();
+	const Application& app = wxGetApp();
 	/*
 		result->Append(wxID_EXIT,
 			app.getText(FILE_SECTION,
@@ -18,7 +18,7 @@ wxMenu* createConfigurationMenu() {
 }
 
 void updateConfigurationMenu(wxMenu* menu) {
-	Application& app = wxGetApp();
+	const Application& app = wxGetApp();
 	/*
 	menu->SetLabel(wxID_EXIT, app.getText(FILE_SECTION,
 		FILE_EXIT_KEY, FILE_EXIT_DEF_VALUE));

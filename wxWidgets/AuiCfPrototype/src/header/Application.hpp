@@ -14,7 +14,7 @@ public:
 	int OnExit() override;
 	void loadLanguage(const Lang lang, bool updateText = false);
 	wxString getText(wxString groupId, wxString textId,
-		wxString defValue);
+		wxString defValue) const;
 	void loadSettingsFile();
 private:
 	MainFrame* m_mainFrame = nullptr;
