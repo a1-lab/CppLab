@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BorderSizer", "BorderSizer\BorderSizer.vcxproj", "{5891B9CC-8A3C-4BA3-88FD-910F8E2895E3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SplitterDialog", "SplitterDialog\SplitterDialog.vcxproj", "{2F3B668E-A568-4303-AB13-3AEB148AA8C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{5891B9CC-8A3C-4BA3-88FD-910F8E2895E3}.Release|x64.Build.0 = Release|x64
 		{5891B9CC-8A3C-4BA3-88FD-910F8E2895E3}.Release|x86.ActiveCfg = Release|Win32
 		{5891B9CC-8A3C-4BA3-88FD-910F8E2895E3}.Release|x86.Build.0 = Release|Win32
+		{2F3B668E-A568-4303-AB13-3AEB148AA8C0}.Debug|x64.ActiveCfg = Debug|x64
+		{2F3B668E-A568-4303-AB13-3AEB148AA8C0}.Debug|x64.Build.0 = Debug|x64
+		{2F3B668E-A568-4303-AB13-3AEB148AA8C0}.Debug|x86.ActiveCfg = Debug|Win32
+		{2F3B668E-A568-4303-AB13-3AEB148AA8C0}.Debug|x86.Build.0 = Debug|Win32
+		{2F3B668E-A568-4303-AB13-3AEB148AA8C0}.Release|x64.ActiveCfg = Release|x64
+		{2F3B668E-A568-4303-AB13-3AEB148AA8C0}.Release|x64.Build.0 = Release|x64
+		{2F3B668E-A568-4303-AB13-3AEB148AA8C0}.Release|x86.ActiveCfg = Release|Win32
+		{2F3B668E-A568-4303-AB13-3AEB148AA8C0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

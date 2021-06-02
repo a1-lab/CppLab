@@ -1,18 +1,19 @@
+#include "wx/collpane.h"
 #include "MainFrame.hpp"
-#include "wx/button.h"
 
 MainFrame::MainFrame(const wxString& title) :
 	wxFrame(nullptr, wxID_ANY, title)
 {
 	SetProcessDPIAware();
 	auto* frameSizer = new wxBoxSizer(wxVERTICAL);
-
-	auto* button = new wxButton(this, wxID_ANY,
-		wxT("Test"), wxDefaultPosition, wxSize(240, 50));
-
-	frameSizer->Add(button, 0, wxALL, 10);
-	//frameSizer->SetSizeHints(this);
-	SetSizerAndFit(frameSizer);
+	this->SetSizerAndFit(frameSizer);
+	auto* containerSizer = new wxBoxSizer(wxVERTICAL);
+	frameSizer->Add(containerSizer, 1, wxGROW | wxALL, 5);
+	m_splitterWindow = new wxSplitterWindow(this);
+	auto collapsiblePane = new wxCollapsiblePane(this, wxID_ANY,
+		wxT("Test collapsible pane"));
+	auto testButton = new wxButton();
+	collapsiblePane->AddChild(testButton);
 
 	Centre();
 }
