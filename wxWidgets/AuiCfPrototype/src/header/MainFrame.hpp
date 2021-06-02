@@ -12,11 +12,13 @@ public:
 	virtual ~MainFrame();
 	// UpdateMainMenu вызывается после смены языка
 	void UpdateMainMenu();
-	void OnToggleToolbarCaptions(wxCommandEvent& event);
+	void OnShowToolbarCaptions(wxCommandEvent& event);
+	void OnAdd(wxCommandEvent& event);
+	void OnPointer(wxCommandEvent& event);
 private:
 	void CreateMainMenu();
-	void CreateMainToolbar();
-	void CreateToolbarSizeAndScale();
+	void CreateToolBar();
+	void CreateToolbarSize();
 
 	//m_auiManager is created on stack.
 	//i.e. automatically created and deleted.
@@ -24,6 +26,8 @@ private:
 	wxAuiToolBarItemArray prepend_items;
 	wxAuiToolBarItemArray append_items;
 	wxMenuBar* m_menuBar = new wxMenuBar();
+	wxAuiToolBar* m_mainToolBar = nullptr;
+	wxAuiToolBar* m_toolbarSize = nullptr;
 
 	DECLARE_EVENT_TABLE();
 };

@@ -1,6 +1,6 @@
 #include "wx/wx.h"
 #include "Application.hpp"
-#include "Strings.h"
+#include "MenuStrings.h"
 #include "Ids.h"
 
 wxMenu* createFileMenu() {

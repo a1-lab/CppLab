@@ -2,3 +2,12 @@
 File=&File
 View=&View
 [File]
+[MainToolbar]
+MainToolbarCaption=Main Toolbar
+New=New
+NewShortHelp=New project
+NewLongHelp=Create a new project
+Open=Open
+OpenShortHelp=Open project
+OpenLongHelp=Open project
+Save=Save

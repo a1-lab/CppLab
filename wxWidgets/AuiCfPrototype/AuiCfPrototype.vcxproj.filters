@@ -19,6 +19,21 @@
     <Filter Include="Файлы заголовков\resource">
       <UniqueIdentifier>{4e339cf7-1351-4f1c-973a-683bc75197f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\toolbar">
+      <UniqueIdentifier>{833a8020-9160-409d-9302-4a859615192f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\menu">
+      <UniqueIdentifier>{159e5964-5ded-4ca6-843b-c7cb1aad9b6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\toolbar">
+      <UniqueIdentifier>{deb9a2b1-d8af-4019-ae07-b03346e92227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\artprovider">
+      <UniqueIdentifier>{a1fd3ef7-da59-41fc-834d-8b9d74cb22ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\artprovider">
+      <UniqueIdentifier>{d177139f-4a83-4098-b05b-4ada0992c77f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -28,9 +43,6 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\source\MainFrame.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\source\CFArtProvider.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\source\menu\file_menu.cpp">
@@ -54,6 +66,18 @@
     <ClCompile Include="src\source\menu\window_menu.cpp">
       <Filter>Исходные файлы\menu</Filter>
     </ClCompile>
+    <ClCompile Include="src\source\toolbar\main_toolbar.cpp">
+      <Filter>Исходные файлы\toolbar</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\artprovider\CFArtProvider.cpp">
+      <Filter>Исходные файлы\artprovider</Filter>
+    </ClCompile>
+    <ClCompile Include="src\header\artprovider\CFToolbarArt.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\toolbar\ToolbarSize.cpp">
+      <Filter>Исходные файлы\toolbar</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp">
@@ -68,17 +92,29 @@
     <ClInclude Include="src\header\Ids.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="src\header\CFArtProvider.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="src\header\resource\Strings.h">
-      <Filter>Файлы заголовков\resource</Filter>
-    </ClInclude>
     <ClInclude Include="src\header\resource\Settings.h">
       <Filter>Файлы заголовков\resource</Filter>
     </ClInclude>
     <ClInclude Include="src\header\resource\CFArtId.h">
       <Filter>Файлы заголовков\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\menu\MainMenu.h">
+      <Filter>Файлы заголовков\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\toolbar\ToolBar.h">
+      <Filter>Файлы заголовков\toolbar</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\resource\MenuStrings.h">
+      <Filter>Файлы заголовков\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\resource\ToolbarStrings.h">
+      <Filter>Файлы заголовков\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\artprovider\CFArtProvider.hpp">
+      <Filter>Файлы заголовков\artprovider</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\toolbar\ToolbarSize.h">
+      <Filter>Файлы заголовков\toolbar</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

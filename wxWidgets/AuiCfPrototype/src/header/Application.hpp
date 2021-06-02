@@ -6,6 +6,8 @@
 //wxmemdbg must be the last one in include list
 #include "wxmemdbg.h"
 
+#define MAIN_FRAME_TITLE wxT("AUI CF Prototype Application")
+
 enum class Lang { NONE, ENG, RUS, UKR };
 
 class Application : public wxApp {

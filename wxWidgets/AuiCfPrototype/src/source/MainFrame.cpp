@@ -1,46 +1,45 @@
-#include "wx/artprov.h"
+#include "wx/collpane.h"
 #include "Application.hpp"
 #include "MainFrame.hpp"
-#include "Strings.h"
+#include "MenuStrings.h"
 #include "Ids.h"
+#include "ToolbarStrings.h"
+#include "menu/MainMenu.h"
+#include "toolbar/ToolBar.h"
+#include "toolbar/ToolBarSize.h"
+
 
 BEGIN_EVENT_TABLE(MainFrame, wxFrame)
-//EVT_MENU(ID_SHOW_TOOLBAR_CAPTIONS, MainFrame::OnToggleToolbarCaptions)
+/**/EVT_MENU(ID_SHOW_TOOLBAR_CAPTIONS, MainFrame::OnShowToolbarCaptions)
+/**/EVT_TOOL(ID_POINTER, MainFrame::OnPointer)
+/**/EVT_TOOL(ID_ADD, MainFrame::OnAdd)
 END_EVENT_TABLE()
-
-wxMenu* createFileMenu();
-void updateFileMenu(wxMenu* menu);
-wxMenu* createViewMenu();
-void updateViewMenu(wxMenu* menu);
-wxMenu* createEditMenu();
-void updateEditMenu(wxMenu* menu);
-wxMenu* createEffectsMenu();
-void updateEffectsMenu(wxMenu* menu);
-wxMenu* createConfigurationMenu();
-void updateConfigurationMenu(wxMenu* menu);
-wxMenu* createHelpMenu();
-void updateHelpMenu(wxMenu* menu);
-wxMenu* createWindowMenu();
-void updateWindowMenu(wxMenu* menu);
-
 
 MainFrame::MainFrame(wxDocManager* manager,
 	const wxSize& size) : wxDocParentFrame(manager, nullptr,
 		wxID_ANY, MAIN_FRAME_TITLE, wxDefaultPosition, size,
 		wxDEFAULT_FRAME_STYLE, wxFrameNameStr)
-
 {
-	SetMinSize(wxSize(800, 600));
+	SetMinSize(wxSize(1024, 768));
+	SetThemeEnabled(true);
 
 	m_auiManager.SetManagedWindow(this);
 
-	CreateMainToolbar();
-	//CreateToolbarSizeAndScale();
+	CreateMainMenu();
+	CreateToolBar();
+	CreateToolbarSize();
 	m_auiManager.Update();
 
-	CreateMainMenu();
 	CreateStatusBar(1);
 	//ShowFullScreen(true, wxFULLSCREEN_NOCAPTION);
+
+	auto pane = new wxPanel();
+	auto text = new wxStaticText(pane, wxID_ANY, "test text");
+	m_auiManager.AddPane(pane, wxAuiPaneInfo().
+		Name("test8").Caption("Tree Pane").
+		Left().Layer(1).Position(1).
+		CloseButton(true).MaximizeButton(true));
+	m_auiManager.Update();
 }
 
 MainFrame::~MainFrame()
@@ -120,56 +119,60 @@ void MainFrame::UpdateMainMenu()
 	updateEditMenu(menu);
 }
 
-void MainFrame::OnToggleToolbarCaptions(wxCommandEvent& event)
+void MainFrame::OnShowToolbarCaptions(wxCommandEvent& WXUNUSED(event))
 {
+	auto artProvider = m_mainToolBar->GetArtProvider();
+	unsigned int flags = artProvider->GetFlags();
+	unsigned int showText = flags & wxAUI_TB_TEXT;
+	if (showText) {
+		flags = flags & (~wxAUI_TB_TEXT);
+	}
+	else {
+		flags = flags | wxAUI_TB_TEXT;
+	}
+
+	artProvider->SetFlags(flags);
+	m_mainToolBar->Realize();
+	m_toolbarSize->Realize();
 }
 
-void MainFrame::CreateMainToolbar()
+void MainFrame::OnAdd(wxCommandEvent& WXUNUSED(event))
 {
+	//	m_mainToolBar->ToggleTool(ID_POINTER, false);
+	//	m_mainToolBar->ToggleTool(ID_ADD, true);
+	//	m_mainToolBar->Realize();
+}
 
-	auto toolbar = new wxAuiToolBar(this, wxID_ANY,
-		wxDefaultPosition, wxDefaultSize,
-		wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW | wxAUI_TB_TEXT);
+void MainFrame::OnPointer(wxCommandEvent& event)
+{
+	//	m_mainToolBar->ToggleTool(ID_POINTER, true);
+	//	m_mainToolBar->ToggleTool(ID_ADD, false);
+	//	m_mainToolBar->Realize();
+}
 
-	auto artProvider = toolbar->GetArtProvider();
-	artProvider->SetFlags(wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW);
+void MainFrame::CreateToolBar()
+{
+	const Application& app = wxGetApp();
 
-	toolbar->SetToolBitmapSize(FromDIP(wxSize(16, 16)));
-	wxBitmap tb4_bmp1 = wxArtProvider::GetBitmap(wxART_NORMAL_FILE,
-		wxART_OTHER, FromDIP(wxSize(16, 16)));
+	auto color = m_menuBar->GetBackgroundColour();
+	// We use 16x17 but not 16x16 because
+	//   1. selection highlighting rectangle is the same height as scale control
+	//   2. this rect has the same height and width
+	m_mainToolBar = createMainToolBar(this, FromDIP(wxSize(16, 17)));
 
-	wxBitmap tb4_bmp2 = wxArtProvider::GetBitmap(wxART_NORMAL_FILE,
-		wxART_OTHER, FromDIP(wxSize(16, 16)));
-
-	toolbar->AddTool(ID_NEW, tb4_bmp1, wxNullBitmap,
-		false, nullptr, wxT("Новый проект"), wxT("Создать новый проект"));
-
-	toolbar->SetToolSticky(ID_NEW, true);
-	toolbar->AddTool(ID_OPEN, "", tb4_bmp1);
-	toolbar->SetToolSticky(ID_OPEN, true);
-	toolbar->AddTool(ID_SAVE, "", tb4_bmp1);
-	toolbar->AddSeparator();
-	toolbar->AddTool(ID_POINTER, "", tb4_bmp2);
-	toolbar->SetToolSticky(ID_POINTER, true);
-	toolbar->AddTool(ID_ADD, "Добавить", tb4_bmp2);
-	toolbar->SetToolSticky(ID_ADD, true);
-	toolbar->AddTool(ID_DELETE, "", tb4_bmp1);
-	toolbar->AddSeparator();
-	toolbar->AddTool(ID_EFFECTS, "Эффекты", tb4_bmp2);
-	toolbar->AddTool(ID_PLAY, "", tb4_bmp2);
-	toolbar->AddTool(ID_WRITE_PROGRAM, "Записать", tb4_bmp2);
-
-	toolbar->SetToolDropDown(ID_OPEN, true);
-	toolbar->SetToolDropDown(ID_SAVE, true);
-
-	toolbar->SetCustomOverflowItems(prepend_items, append_items);
-	toolbar->Realize();
-
-	m_auiManager.AddPane(toolbar, wxAuiPaneInfo().
-		Name("MainToolbar").Caption("Главная панель инструментов").
+	m_auiManager.AddPane(m_mainToolBar, wxAuiPaneInfo().
+		Name("MainToolbar").
+		Caption(app.getText(MAIN_TOOLBAR, MAIN_TOOLBAR_CAPTION, MAIN_TOOLBAR_CAPTION_DEF_VALUE)).
 		ToolbarPane().Top().Row(1));
+
 }
 
-void MainFrame::CreateToolbarSizeAndScale()
+void MainFrame::CreateToolbarSize()
 {
+	const Application& app = wxGetApp();
+	m_toolbarSize = createToolbarSize(this, m_menuBar->GetBackgroundColour());
+	m_auiManager.AddPane(m_toolbarSize, wxAuiPaneInfo().
+		Name("ToolbarSize").
+		Caption(app.getText(TOOLBAR_SIZE, TOOLBAR_SIZE_CAPTION, TOOLBAR_SIZE_CAPTION_DEF_VALUE)).
+		ToolbarPane().Top().Row(1));
 }

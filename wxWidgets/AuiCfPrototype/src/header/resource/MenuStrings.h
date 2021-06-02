@@ -1,5 +1,5 @@
 #pragma once
-#define MAIN_FRAME_TITLE wxT("AUI CF Prototype Application")
+
 //----------------------- Main Menu -----------------------
 #define MENU_SECTION wxT("Menu")
 
@@ -30,4 +30,10 @@
 #define FILE_EXIT_HELP_KEY wxT("ExitHelp")
 #define FILE_EXIT_HELP_DEF_VALUE wxT("Quit Application")
 
-//---------------------- Main Toolbar ---------------------
+//----------------------- View Menu -----------------------
+#define VIEW_SECTION wxT("View")
+#define VIEW_SHOW_TOOLBAR_CAPTIONS_KEY wxT("ShowToolbarCaptions")
+#define VIEW_SHOW_TOOLBAR_CAPTIONS_DEF_VALUE wxT("Show ToolBar Captions")
+#define VIEW_SHOW_TOOLBAR_CAPTIONS_HELP_KEY wxT("ShowToolbarCaptionsHelp")
+#define VIEW_SHOW_TOOLBAR_CAPTIONS_HELP_DEF_VALUE wxT("Show ToolBar Captions")
+

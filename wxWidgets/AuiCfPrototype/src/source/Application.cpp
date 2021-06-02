@@ -3,8 +3,8 @@
 #include "wx/filefn.h"
 
 #include "Application.hpp"
-#include "CFArtProvider.hpp"
-#include "Strings.h"
+#include "artprovider/CFArtProvider.hpp"
+#include "MenuStrings.h"
 #include "Settings.h"
 
 IMPLEMENT_APP(Application)

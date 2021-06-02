@@ -150,8 +150,9 @@
     <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\header\artprovider\CFToolbarArt.cpp" />
     <ClCompile Include="src\source\Application.cpp" />
-    <ClCompile Include="src\source\CFArtProvider.cpp" />
+    <ClCompile Include="src\source\artprovider\CFArtProvider.cpp" />
     <ClCompile Include="src\source\MainFrame.cpp" />
     <ClCompile Include="src\source\menu\configuration_menu.cpp" />
     <ClCompile Include="src\source\menu\edit_menu.cpp" />
@@ -160,15 +161,21 @@
     <ClCompile Include="src\source\menu\help_menu.cpp" />
     <ClCompile Include="src\source\menu\view_menu.cpp" />
     <ClCompile Include="src\source\menu\window_menu.cpp" />
+    <ClCompile Include="src\source\toolbar\main_toolbar.cpp" />
+    <ClCompile Include="src\source\toolbar\ToolbarSize.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp" />
-    <ClInclude Include="src\header\CFArtProvider.hpp" />
+    <ClInclude Include="src\header\artprovider\CFArtProvider.hpp" />
     <ClInclude Include="src\header\Ids.h" />
     <ClInclude Include="src\header\MainFrame.hpp" />
+    <ClInclude Include="src\header\menu\MainMenu.h" />
     <ClInclude Include="src\header\resource\CFArtId.h" />
+    <ClInclude Include="src\header\resource\MenuStrings.h" />
     <ClInclude Include="src\header\resource\Settings.h" />
-    <ClInclude Include="src\header\resource\Strings.h" />
+    <ClInclude Include="src\header\resource\ToolbarStrings.h" />
+    <ClInclude Include="src\header\toolbar\ToolBar.h" />
+    <ClInclude Include="src\header\toolbar\ToolbarSize.h" />
     <ClInclude Include="src\header\wxmemdbg.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
