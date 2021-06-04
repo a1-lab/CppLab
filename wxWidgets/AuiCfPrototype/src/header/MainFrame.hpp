@@ -1,7 +1,9 @@
 #pragma once
 #include "wx/wx.h"
 #include "wx/docview.h"
+#include "wx/splitter.h"
 #include "wx/aui/aui.h"
+
 //wxmemdbg must be the 
 //last one in include list
 #include "wxmemdbg.h"
@@ -12,13 +14,14 @@ public:
 	virtual ~MainFrame();
 	// UpdateMainMenu вызывается после смены языка
 	void UpdateMainMenu();
-	void OnShowToolbarCaptions(wxCommandEvent& event);
+	void OnShowDashboard(wxCommandEvent& event);
 	void OnAdd(wxCommandEvent& event);
 	void OnPointer(wxCommandEvent& event);
 private:
 	void CreateMainMenu();
 	void CreateToolBar();
 	void CreateToolbarSize();
+	void CreateMainContent();
 
 	//m_auiManager is created on stack.
 	//i.e. automatically created and deleted.
@@ -28,6 +31,9 @@ private:
 	wxMenuBar* m_menuBar = new wxMenuBar();
 	wxAuiToolBar* m_mainToolBar = nullptr;
 	wxAuiToolBar* m_toolbarSize = nullptr;
+
+	wxWindow* m_dashboard = nullptr;
+	wxWindow* m_centralWindow = nullptr;
 
 	DECLARE_EVENT_TABLE();
 };

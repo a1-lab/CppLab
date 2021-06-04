@@ -18,11 +18,22 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\source\Application.cpp" />
+    <ClCompile Include="src\source\MainFrame.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\header\Application.hpp" />
+    <ClInclude Include="src\header\MainFrame.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{a5de2c98-2950-4c5f-80d6-26f582b08eef}</ProjectGuid>
-    <RootNamespace>AuiCfPrototype</RootNamespace>
+    <ProjectGuid>{5891b9cc-8a3c-4ba3-88fd-910f8e2895e3}</ProjectGuid>
+    <RootNamespace>BoxSizer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -72,19 +83,15 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -92,6 +99,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)\src\header;$(WXWIN)\include;$(WXWIN)\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -107,6 +116,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)\src\header;$(WXWIN)\include;$(WXWIN)\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -122,6 +133,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)\src\header;$(WXWIN)\include;$(WXWIN)\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -137,6 +150,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)\src\header;$(WXWIN)\include;$(WXWIN)\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -146,40 +161,6 @@
       <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <None Include="cpp.hint" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\header\artprovider\CFToolbarArt.cpp" />
-    <ClCompile Include="src\source\Application.cpp" />
-    <ClCompile Include="src\source\artprovider\CFArtProvider.cpp" />
-    <ClCompile Include="src\source\custom_control\TransparentStaticText.cpp" />
-    <ClCompile Include="src\source\MainFrame.cpp" />
-    <ClCompile Include="src\source\menu\configuration_menu.cpp" />
-    <ClCompile Include="src\source\menu\edit_menu.cpp" />
-    <ClCompile Include="src\source\menu\effects_menu.cpp" />
-    <ClCompile Include="src\source\menu\file_menu.cpp" />
-    <ClCompile Include="src\source\menu\help_menu.cpp" />
-    <ClCompile Include="src\source\menu\view_menu.cpp" />
-    <ClCompile Include="src\source\menu\window_menu.cpp" />
-    <ClCompile Include="src\source\toolbar\MainToolbar.cpp" />
-    <ClCompile Include="src\source\toolbar\ToolbarSize.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\header\Application.hpp" />
-    <ClInclude Include="src\header\artprovider\CFArtProvider.hpp" />
-    <ClInclude Include="src\header\custom_control\TransparentStaticText.hpp" />
-    <ClInclude Include="src\header\Ids.h" />
-    <ClInclude Include="src\header\MainFrame.hpp" />
-    <ClInclude Include="src\header\menu\MainMenu.h" />
-    <ClInclude Include="src\header\resource\CFArtId.h" />
-    <ClInclude Include="src\header\resource\MenuStrings.h" />
-    <ClInclude Include="src\header\resource\Settings.h" />
-    <ClInclude Include="src\header\resource\ToolbarStrings.h" />
-    <ClInclude Include="src\header\toolbar\MainToolbar.h" />
-    <ClInclude Include="src\header\toolbar\ToolbarSize.h" />
-    <ClInclude Include="src\header\wxmemdbg.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

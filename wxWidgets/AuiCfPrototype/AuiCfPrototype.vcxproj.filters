@@ -34,6 +34,12 @@
     <Filter Include="Исходные файлы\artprovider">
       <UniqueIdentifier>{d177139f-4a83-4098-b05b-4ada0992c77f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\custom_control">
+      <UniqueIdentifier>{b4232f5d-76f3-45f6-b1e1-72c4b3f7c819}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\custom_control">
+      <UniqueIdentifier>{129e9ab3-eda4-4a82-96c7-0262ef56cce9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -66,9 +72,6 @@
     <ClCompile Include="src\source\menu\window_menu.cpp">
       <Filter>Исходные файлы\menu</Filter>
     </ClCompile>
-    <ClCompile Include="src\source\toolbar\main_toolbar.cpp">
-      <Filter>Исходные файлы\toolbar</Filter>
-    </ClCompile>
     <ClCompile Include="src\source\artprovider\CFArtProvider.cpp">
       <Filter>Исходные файлы\artprovider</Filter>
     </ClCompile>
@@ -76,6 +79,12 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\source\toolbar\ToolbarSize.cpp">
+      <Filter>Исходные файлы\toolbar</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\custom_control\TransparentStaticText.cpp">
+      <Filter>Исходные файлы\custom_control</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\toolbar\MainToolbar.cpp">
       <Filter>Исходные файлы\toolbar</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,9 +110,6 @@
     <ClInclude Include="src\header\menu\MainMenu.h">
       <Filter>Файлы заголовков\menu</Filter>
     </ClInclude>
-    <ClInclude Include="src\header\toolbar\ToolBar.h">
-      <Filter>Файлы заголовков\toolbar</Filter>
-    </ClInclude>
     <ClInclude Include="src\header\resource\MenuStrings.h">
       <Filter>Файлы заголовков\resource</Filter>
     </ClInclude>
@@ -114,6 +120,12 @@
       <Filter>Файлы заголовков\artprovider</Filter>
     </ClInclude>
     <ClInclude Include="src\header\toolbar\ToolbarSize.h">
+      <Filter>Файлы заголовков\toolbar</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\custom_control\TransparentStaticText.hpp">
+      <Filter>Файлы заголовков\custom_control</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\toolbar\MainToolbar.h">
       <Filter>Файлы заголовков\toolbar</Filter>
     </ClInclude>
   </ItemGroup>

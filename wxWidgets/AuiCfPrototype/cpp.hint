@@ -9,3 +9,6 @@
 #define EVT_MENU(winid, func) wx__DECLARE_EVT1(wxEVT_MENU, winid, wxCommandEventHandler(func))
 #define wxAuiDefaultToolBarArt
 #define EVT_TOOL(winid, func) wx__DECLARE_EVT1(wxEVT_TOOL, winid, wxCommandEventHandler(func))
+#define DECLARE_DYNAMIC_CLASS(n) wxDECLARE_DYNAMIC_CLASS(n);
+#define DECLARE_EVENT_TABLE() wxDECLARE_EVENT_TABLE();
+#define IMPLEMENT_DYNAMIC_CLASS(n, b) wxIMPLEMENT_DYNAMIC_CLASS(n,b)
