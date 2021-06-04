@@ -32,8 +32,8 @@
 
 //----------------------- View Menu -----------------------
 #define VIEW_SECTION wxT("View")
-#define VIEW_SHOW_TOOLBAR_CAPTIONS_KEY wxT("ShowToolbarCaptions")
-#define VIEW_SHOW_TOOLBAR_CAPTIONS_DEF_VALUE wxT("Show ToolBar Captions")
-#define VIEW_SHOW_TOOLBAR_CAPTIONS_HELP_KEY wxT("ShowToolbarCaptionsHelp")
-#define VIEW_SHOW_TOOLBAR_CAPTIONS_HELP_DEF_VALUE wxT("Show ToolBar Captions")
+#define VIEW_SHOW_DASHBOARD_KEY wxT("ShowDashboard")
+#define VIEW_SHOW_DASHBOARD_DEF_VALUE wxT("Show Dashboard")
+#define VIEW_SHOW_DASHBOARD_HELP_KEY wxT("ShowDashboardHelp")
+#define VIEW_SHOW_DASHBOARD_HELP_DEF_VALUE wxT("Show Dashboard")
 

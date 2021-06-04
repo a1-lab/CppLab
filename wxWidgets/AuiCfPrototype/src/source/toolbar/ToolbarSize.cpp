@@ -2,6 +2,8 @@
 #include "wx/spinctrl.h"
 #include "Application.hpp"
 #include "Ids.h"
+#include "custom_control/TransparentStaticText.hpp"
+#include "ToolbarStrings.h"
 
 wxAuiToolBar* createToolbarSize(wxWindow* parent, const wxColour& bgColor) {
 	const Application& app = wxGetApp();
@@ -12,11 +14,18 @@ wxAuiToolBar* createToolbarSize(wxWindow* parent, const wxColour& bgColor) {
 		wxAUI_TB_HORZ_TEXT
 	);
 
-	auto widthText = new wxStaticText(result, wxID_ANY, "Высота");
-	widthText->SetBackgroundColour(wxNullColour);
+
+	auto heightText = new TransparentStaticText(result, wxID_ANY,
+		app.getText(TOOLBAR_SIZE, HEIGHT_KEY, HEIGHT_DEF_VALUE) + ONE_SPACE);
+	auto heightControl = new wxSpinCtrl(result);
+	result->AddControl(heightText);
+	result->AddControl(heightControl);
+
+	auto widthText = new TransparentStaticText(result, wxID_ANY,
+		FOUR_SPACES + app.getText(TOOLBAR_SIZE, WIDTH_KEY, WIDTH_DEF_VALUE) + ONE_SPACE);
 	auto widthControl = new wxSpinCtrl(result);
 	result->AddControl(widthText);
-	result->AddControl(widthControl, "Высота");
+	result->AddControl(widthControl);
 
 	return result;
 }

@@ -1,16 +1,17 @@
-#include "wx/collpane.h"
+#include "wx/splitter.h"
 #include "Application.hpp"
 #include "MainFrame.hpp"
 #include "MenuStrings.h"
 #include "Ids.h"
 #include "ToolbarStrings.h"
 #include "menu/MainMenu.h"
-#include "toolbar/ToolBar.h"
-#include "toolbar/ToolBarSize.h"
+#include "toolbar/MainToolbar.h"
+#include "toolbar/ToolbarSize.h"
 
+#define DASHBOARD_PANE_NAME wxT("dashboard")
 
 BEGIN_EVENT_TABLE(MainFrame, wxFrame)
-/**/EVT_MENU(ID_SHOW_TOOLBAR_CAPTIONS, MainFrame::OnShowToolbarCaptions)
+/**/EVT_MENU(ID_SHOW_DASHBOARD, MainFrame::OnShowDashboard)
 /**/EVT_TOOL(ID_POINTER, MainFrame::OnPointer)
 /**/EVT_TOOL(ID_ADD, MainFrame::OnAdd)
 END_EVENT_TABLE()
@@ -28,18 +29,11 @@ MainFrame::MainFrame(wxDocManager* manager,
 	CreateMainMenu();
 	CreateToolBar();
 	CreateToolbarSize();
+	CreateMainContent();
 	m_auiManager.Update();
 
 	CreateStatusBar(1);
 	//ShowFullScreen(true, wxFULLSCREEN_NOCAPTION);
-
-	auto pane = new wxPanel();
-	auto text = new wxStaticText(pane, wxID_ANY, "test text");
-	m_auiManager.AddPane(pane, wxAuiPaneInfo().
-		Name("test8").Caption("Tree Pane").
-		Left().Layer(1).Position(1).
-		CloseButton(true).MaximizeButton(true));
-	m_auiManager.Update();
 }
 
 MainFrame::~MainFrame()
@@ -119,35 +113,21 @@ void MainFrame::UpdateMainMenu()
 	updateEditMenu(menu);
 }
 
-void MainFrame::OnShowToolbarCaptions(wxCommandEvent& WXUNUSED(event))
+void MainFrame::OnShowDashboard(wxCommandEvent& WXUNUSED(event))
 {
-	auto artProvider = m_mainToolBar->GetArtProvider();
-	unsigned int flags = artProvider->GetFlags();
-	unsigned int showText = flags & wxAUI_TB_TEXT;
-	if (showText) {
-		flags = flags & (~wxAUI_TB_TEXT);
-	}
-	else {
-		flags = flags | wxAUI_TB_TEXT;
-	}
-
-	artProvider->SetFlags(flags);
-	m_mainToolBar->Realize();
-	m_toolbarSize->Realize();
+	auto& dashboardPane = m_auiManager.GetPane(DASHBOARD_PANE_NAME);
+	dashboardPane.Show();
+	m_auiManager.Update();
 }
 
 void MainFrame::OnAdd(wxCommandEvent& WXUNUSED(event))
 {
-	//	m_mainToolBar->ToggleTool(ID_POINTER, false);
-	//	m_mainToolBar->ToggleTool(ID_ADD, true);
-	//	m_mainToolBar->Realize();
+
 }
 
 void MainFrame::OnPointer(wxCommandEvent& event)
 {
-	//	m_mainToolBar->ToggleTool(ID_POINTER, true);
-	//	m_mainToolBar->ToggleTool(ID_ADD, false);
-	//	m_mainToolBar->Realize();
+
 }
 
 void MainFrame::CreateToolBar()
@@ -170,9 +150,40 @@ void MainFrame::CreateToolBar()
 void MainFrame::CreateToolbarSize()
 {
 	const Application& app = wxGetApp();
-	m_toolbarSize = createToolbarSize(this, m_menuBar->GetBackgroundColour());
+	wxColour bgColor = m_auiManager.
+		GetArtProvider()->GetColour(wxAUI_DOCKART_BACKGROUND_COLOUR);
+
+	m_toolbarSize = createToolbarSize(this, bgColor);
 	m_auiManager.AddPane(m_toolbarSize, wxAuiPaneInfo().
 		Name("ToolbarSize").
 		Caption(app.getText(TOOLBAR_SIZE, TOOLBAR_SIZE_CAPTION, TOOLBAR_SIZE_CAPTION_DEF_VALUE)).
 		ToolbarPane().Top().Row(1));
+}
+
+void MainFrame::CreateMainContent()
+{
+	auto centerPanel = new wxPanel(this);
+	auto dashboardPanel = new wxPanel(this);
+
+	m_auiManager.AddPane(centerPanel, wxAuiPaneInfo().Name("main_content").
+		CenterPane().PaneBorder(false));
+
+	m_auiManager.AddPane(dashboardPanel, wxAuiPaneInfo().Name(DASHBOARD_PANE_NAME).
+		Left().TopDockable(false).BottomDockable(false).MinSize(300, -1));
+
+	auto centralPanelSizer = new wxBoxSizer(wxVERTICAL);
+	centerPanel->SetSizerAndFit(centralPanelSizer);
+	m_centralWindow = new wxTextCtrl(centerPanel, wxID_ANY, "left text");
+	centralPanelSizer->Add(m_centralWindow, 1, wxGROW, 0);
+
+	auto dashboardPanelSizer = new wxBoxSizer(wxHORIZONTAL);
+	dashboardPanel->SetSizerAndFit(dashboardPanelSizer);
+	auto splitterWindow = new wxSplitterWindow(dashboardPanel);
+	dashboardPanelSizer->Add(splitterWindow, 1, wxGROW | wxALL, 0);
+	auto topPanel = new wxTextCtrl(splitterWindow, wxID_ANY, "top text");
+	auto bottomPanel = new wxTextCtrl(splitterWindow, wxID_ANY, "bottom text");
+
+	splitterWindow->SplitHorizontally(topPanel, bottomPanel, 100);
+
+
 }

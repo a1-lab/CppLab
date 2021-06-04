@@ -3,6 +3,8 @@
 #define MAIN_TOOLBAR wxT("MainToolbar")
 #define MAIN_TOOLBAR_CAPTION wxT("MainToolbarCaption")
 #define MAIN_TOOLBAR_CAPTION_DEF_VALUE wxT("Main Toolbar")
+#define ONE_SPACE wxT(" ")
+#define TWO_SPACES wxT("  ")
 #define FOUR_SPACES wxT("   ")
 
 #define TOOLBAR_SIZE wxT("ToolbarSize")
@@ -80,3 +82,11 @@
 #define WRITE_PROGRAM_SHORT_HELP_DEF_VALUE wxT("Write program")
 #define WRITE_PROGRAM_LONG_HELP_KEY wxT("WriteProgramLongHelp")
 #define WRITE_PROGRAM_LONG_HELP_DEF_VALUE wxT("Write program into device")
+
+//HEIGHT
+#define HEIGHT_KEY wxT("Height")
+#define HEIGHT_DEF_VALUE wxT("Height, mm")
+
+//WIDTH
+#define WIDTH_KEY wxT("Width")
+#define WIDTH_DEF_VALUE wxT("Width, mm")
