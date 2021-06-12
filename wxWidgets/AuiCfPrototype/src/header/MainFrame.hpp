@@ -3,6 +3,7 @@
 #include "wx/docview.h"
 #include "wx/splitter.h"
 #include "wx/aui/aui.h"
+#include "wx/propgrid/propgrid.h"
 
 //wxmemdbg must be the 
 //last one in include list
@@ -21,7 +22,9 @@ private:
 	void CreateMainMenu();
 	void CreateToolBar();
 	void CreateToolbarSize();
+
 	void CreateMainContent();
+	void CreateDashbord(wxPanel* parent);
 
 	//m_auiManager is created on stack.
 	//i.e. automatically created and deleted.
@@ -34,6 +37,8 @@ private:
 
 	wxWindow* m_dashboard = nullptr;
 	wxWindow* m_centralWindow = nullptr;
+
+	wxPropertyGrid* m_propertyGrid = nullptr;
 
 	DECLARE_EVENT_TABLE();
 };

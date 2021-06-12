@@ -176,14 +176,31 @@ void MainFrame::CreateMainContent()
 	m_centralWindow = new wxTextCtrl(centerPanel, wxID_ANY, "left text");
 	centralPanelSizer->Add(m_centralWindow, 1, wxGROW, 0);
 
+	CreateDashbord(dashboardPanel);
+}
+
+void MainFrame::CreateDashbord(wxPanel* parent)
+{
 	auto dashboardPanelSizer = new wxBoxSizer(wxHORIZONTAL);
-	dashboardPanel->SetSizerAndFit(dashboardPanelSizer);
-	auto splitterWindow = new wxSplitterWindow(dashboardPanel);
+	parent->SetSizerAndFit(dashboardPanelSizer);
+	auto splitterWindow = new wxSplitterWindow(parent, wxID_ANY,
+		wxDefaultPosition, wxDefaultSize,
+		wxSP_LIVE_UPDATE | wxCLIP_CHILDREN /* | wxSP_3D | wxSP_NO_XP_THEME */);
+
 	dashboardPanelSizer->Add(splitterWindow, 1, wxGROW | wxALL, 0);
 	auto topPanel = new wxTextCtrl(splitterWindow, wxID_ANY, "top text");
-	auto bottomPanel = new wxTextCtrl(splitterWindow, wxID_ANY, "bottom text");
+	//auto propertyGrid = new wxTextCtrl(splitterWindow, wxID_ANY, "bottom text");
 
-	splitterWindow->SplitHorizontally(topPanel, bottomPanel, 100);
+	auto propertyGrid = new wxPropertyGrid(
+		splitterWindow, // parent
+		wxID_ANY, // id
+		wxDefaultPosition, // position
+		wxDefaultSize, // size
+		// Here are just some of the supported window styles
+		wxPG_AUTO_SORT | // Automatic sorting after items added
+		wxPG_SPLITTER_AUTO_CENTER | // Automatically center splitter until user manually adjusts it
+		// Default style
+		wxPG_DEFAULT_STYLE);
 
-
+	splitterWindow->SplitHorizontally(topPanel, propertyGrid, -100);
 }
