@@ -5,7 +5,7 @@
 #include "custom_control/TransparentStaticText.hpp"
 #include "ToolbarStrings.h"
 
-wxAuiToolBar* createToolbarSize(wxWindow* parent, const wxColour& bgColor) {
+wxAuiToolBar* createToolbarSize(wxWindow* parent) {
 	const Application& app = wxGetApp();
 
 	auto result = new wxAuiToolBar(parent, wxID_ANY,

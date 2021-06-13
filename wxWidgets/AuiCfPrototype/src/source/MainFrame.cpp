@@ -1,4 +1,5 @@
 #include "wx/splitter.h"
+#include "wx/propgrid/advprops.h"
 #include "Application.hpp"
 #include "MainFrame.hpp"
 #include "MenuStrings.h"
@@ -116,6 +117,7 @@ void MainFrame::UpdateMainMenu()
 void MainFrame::OnShowDashboard(wxCommandEvent& WXUNUSED(event))
 {
 	auto& dashboardPane = m_auiManager.GetPane(DASHBOARD_PANE_NAME);
+	dashboardPane.Right();
 	dashboardPane.Show();
 	m_auiManager.Update();
 }
@@ -141,7 +143,7 @@ void MainFrame::CreateToolBar()
 	m_mainToolBar = createMainToolBar(this, FromDIP(wxSize(16, 17)));
 
 	m_auiManager.AddPane(m_mainToolBar, wxAuiPaneInfo().
-		Name("MainToolbar").
+		Name("MainToolbar").PaneBorder(false).
 		Caption(app.getText(MAIN_TOOLBAR, MAIN_TOOLBAR_CAPTION, MAIN_TOOLBAR_CAPTION_DEF_VALUE)).
 		ToolbarPane().Top().Row(1));
 
@@ -150,12 +152,10 @@ void MainFrame::CreateToolBar()
 void MainFrame::CreateToolbarSize()
 {
 	const Application& app = wxGetApp();
-	wxColour bgColor = m_auiManager.
-		GetArtProvider()->GetColour(wxAUI_DOCKART_BACKGROUND_COLOUR);
 
-	m_toolbarSize = createToolbarSize(this, bgColor);
+	m_toolbarSize = createToolbarSize(this);
 	m_auiManager.AddPane(m_toolbarSize, wxAuiPaneInfo().
-		Name("ToolbarSize").
+		Name("ToolbarSize").PaneBorder(false).
 		Caption(app.getText(TOOLBAR_SIZE, TOOLBAR_SIZE_CAPTION, TOOLBAR_SIZE_CAPTION_DEF_VALUE)).
 		ToolbarPane().Top().Row(1));
 }
@@ -169,7 +169,10 @@ void MainFrame::CreateMainContent()
 		CenterPane().PaneBorder(false));
 
 	m_auiManager.AddPane(dashboardPanel, wxAuiPaneInfo().Name(DASHBOARD_PANE_NAME).
-		Left().TopDockable(false).BottomDockable(false).MinSize(300, -1));
+		Left().TopDockable(false).BottomDockable(false).MinSize(300, -1).
+		PaneBorder(false).Caption("Панель управления").
+		PinButton(true).CaptionVisible(false)
+	);
 
 	auto centralPanelSizer = new wxBoxSizer(wxVERTICAL);
 	centerPanel->SetSizerAndFit(centralPanelSizer);
@@ -183,24 +186,29 @@ void MainFrame::CreateDashbord(wxPanel* parent)
 {
 	auto dashboardPanelSizer = new wxBoxSizer(wxHORIZONTAL);
 	parent->SetSizerAndFit(dashboardPanelSizer);
+
 	auto splitterWindow = new wxSplitterWindow(parent, wxID_ANY,
 		wxDefaultPosition, wxDefaultSize,
 		wxSP_LIVE_UPDATE | wxCLIP_CHILDREN /* | wxSP_3D | wxSP_NO_XP_THEME */);
 
+	splitterWindow->SetMinimumPaneSize(150);
+
 	dashboardPanelSizer->Add(splitterWindow, 1, wxGROW | wxALL, 0);
-	auto topPanel = new wxTextCtrl(splitterWindow, wxID_ANY, "top text");
+	auto topPanel = new wxTextCtrl(splitterWindow, wxID_ANY, "top text", 
+		wxDefaultPosition, wxDefaultSize, wxBORDER_NONE);
+	//topPanel->GetBorder()
 	//auto propertyGrid = new wxTextCtrl(splitterWindow, wxID_ANY, "bottom text");
 
 	auto propertyGrid = new wxPropertyGrid(
-		splitterWindow, // parent
-		wxID_ANY, // id
-		wxDefaultPosition, // position
-		wxDefaultSize, // size
-		// Here are just some of the supported window styles
-		wxPG_AUTO_SORT | // Automatic sorting after items added
-		wxPG_SPLITTER_AUTO_CENTER | // Automatically center splitter until user manually adjusts it
-		// Default style
-		wxPG_DEFAULT_STYLE);
+		splitterWindow, wxID_ANY, //parent, id
+		wxDefaultPosition, wxDefaultSize, // position, size
+		wxPG_DEFAULT_STYLE | wxPG_SPLITTER_AUTO_CENTER /* | wxPG_AUTO_SORT*/);
 
-	splitterWindow->SplitHorizontally(topPanel, propertyGrid, -100);
+	splitterWindow->SplitHorizontally(topPanel, propertyGrid, -150);
+	propertyGrid->Append(new wxPropertyCategory("Main"));
+	propertyGrid->Append(new wxStringProperty("Label", "Name", "Initial Value"));
+	propertyGrid->Append(new wxStringProperty("Caption", "Caption", "Caption1"));
+	propertyGrid->Append(new wxColourProperty("My Colour 1",
+		wxPG_LABEL,
+		wxColour(242, 109, 0)));
 }
