@@ -4,6 +4,7 @@
 #include "wx/splitter.h"
 #include "wx/aui/aui.h"
 #include "wx/propgrid/propgrid.h"
+#include "window/Dashboard.hpp"
 
 //wxmemdbg must be the 
 //last one in include list
@@ -15,7 +16,7 @@ public:
 	virtual ~MainFrame();
 	// UpdateMainMenu вызывается после смены языка
 	void UpdateMainMenu();
-	void OnShowDashboard(wxCommandEvent& event);
+	void OnShowDashboardAtRight(wxCommandEvent& event);
 	void OnAdd(wxCommandEvent& event);
 	void OnPointer(wxCommandEvent& event);
 private:
@@ -35,10 +36,8 @@ private:
 	wxAuiToolBar* m_mainToolBar = nullptr;
 	wxAuiToolBar* m_toolbarSize = nullptr;
 
-	wxWindow* m_dashboard = nullptr;
+	Dashboard* m_dashboard = nullptr;
 	wxWindow* m_centralWindow = nullptr;
-
-	wxPropertyGrid* m_propertyGrid = nullptr;
 
 	DECLARE_EVENT_TABLE();
 };

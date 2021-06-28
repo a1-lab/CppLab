@@ -37,3 +37,7 @@
 #define VIEW_SHOW_DASHBOARD_HELP_KEY wxT("ShowDashboardHelp")
 #define VIEW_SHOW_DASHBOARD_HELP_DEF_VALUE wxT("Show Dashboard")
 
+#define SHOW_DASHBOARD_RIGHT_KEY wxT("ShowDashboardRight")
+#define SHOW_DASHBOARD_RIGHT_DEF_VALUE wxT("Show Dashboard at right")
+#define SHOW_DASHBOARD_RIGHT_HELP_KEY wxT("ShowDashboardRightHelp")
+#define SHOW_DASHBOARD_RIGHT_HELP_DEF_VALUE wxT("Show Dashboard at right")

@@ -40,6 +40,12 @@
     <Filter Include="Исходные файлы\custom_control">
       <UniqueIdentifier>{129e9ab3-eda4-4a82-96c7-0262ef56cce9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\window">
+      <UniqueIdentifier>{25c45c9b-a355-47b8-9c1b-43795ee02060}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\window">
+      <UniqueIdentifier>{af6d309e-2a51-4923-bcbe-638dc8a3730a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -87,6 +93,9 @@
     <ClCompile Include="src\source\toolbar\MainToolbar.cpp">
       <Filter>Исходные файлы\toolbar</Filter>
     </ClCompile>
+    <ClCompile Include="src\source\window\Dashboard.cpp">
+      <Filter>Исходные файлы\window</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp">
@@ -127,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="src\header\toolbar\MainToolbar.h">
       <Filter>Файлы заголовков\toolbar</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\window\Dashboard.hpp">
+      <Filter>Файлы заголовков\window</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

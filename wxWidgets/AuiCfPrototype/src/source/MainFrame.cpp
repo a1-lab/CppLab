@@ -1,5 +1,3 @@
-#include "wx/splitter.h"
-#include "wx/propgrid/advprops.h"
 #include "Application.hpp"
 #include "MainFrame.hpp"
 #include "MenuStrings.h"
@@ -9,10 +7,8 @@
 #include "toolbar/MainToolbar.h"
 #include "toolbar/ToolbarSize.h"
 
-#define DASHBOARD_PANE_NAME wxT("dashboard")
-
 BEGIN_EVENT_TABLE(MainFrame, wxFrame)
-/**/EVT_MENU(ID_SHOW_DASHBOARD, MainFrame::OnShowDashboard)
+/**/EVT_MENU(ID_SHOW_DASHBOARD_RIGHT, MainFrame::OnShowDashboardAtRight)
 /**/EVT_TOOL(ID_POINTER, MainFrame::OnPointer)
 /**/EVT_TOOL(ID_ADD, MainFrame::OnAdd)
 END_EVENT_TABLE()
@@ -40,6 +36,7 @@ MainFrame::MainFrame(wxDocManager* manager,
 MainFrame::~MainFrame()
 {
 	m_auiManager.UnInit();
+	delete m_dashboard;
 }
 
 void MainFrame::CreateMainMenu()
@@ -114,11 +111,11 @@ void MainFrame::UpdateMainMenu()
 	updateEditMenu(menu);
 }
 
-void MainFrame::OnShowDashboard(wxCommandEvent& WXUNUSED(event))
+void MainFrame::OnShowDashboardAtRight(wxCommandEvent& WXUNUSED(event))
 {
 	auto& dashboardPane = m_auiManager.GetPane(DASHBOARD_PANE_NAME);
+	m_dashboard->Right();
 	dashboardPane.Right();
-	dashboardPane.Show();
 	m_auiManager.Update();
 }
 
@@ -184,31 +181,5 @@ void MainFrame::CreateMainContent()
 
 void MainFrame::CreateDashbord(wxPanel* parent)
 {
-	auto dashboardPanelSizer = new wxBoxSizer(wxHORIZONTAL);
-	parent->SetSizerAndFit(dashboardPanelSizer);
-
-	auto splitterWindow = new wxSplitterWindow(parent, wxID_ANY,
-		wxDefaultPosition, wxDefaultSize,
-		wxSP_LIVE_UPDATE | wxCLIP_CHILDREN /* | wxSP_3D | wxSP_NO_XP_THEME */);
-
-	splitterWindow->SetMinimumPaneSize(150);
-
-	dashboardPanelSizer->Add(splitterWindow, 1, wxGROW | wxALL, 0);
-	auto topPanel = new wxTextCtrl(splitterWindow, wxID_ANY, "top text", 
-		wxDefaultPosition, wxDefaultSize, wxBORDER_NONE);
-	//topPanel->GetBorder()
-	//auto propertyGrid = new wxTextCtrl(splitterWindow, wxID_ANY, "bottom text");
-
-	auto propertyGrid = new wxPropertyGrid(
-		splitterWindow, wxID_ANY, //parent, id
-		wxDefaultPosition, wxDefaultSize, // position, size
-		wxPG_DEFAULT_STYLE | wxPG_SPLITTER_AUTO_CENTER /* | wxPG_AUTO_SORT*/);
-
-	splitterWindow->SplitHorizontally(topPanel, propertyGrid, -150);
-	propertyGrid->Append(new wxPropertyCategory("Main"));
-	propertyGrid->Append(new wxStringProperty("Label", "Name", "Initial Value"));
-	propertyGrid->Append(new wxStringProperty("Caption", "Caption", "Caption1"));
-	propertyGrid->Append(new wxColourProperty("My Colour 1",
-		wxPG_LABEL,
-		wxColour(242, 109, 0)));
+	m_dashboard = new Dashboard(parent);
 }
