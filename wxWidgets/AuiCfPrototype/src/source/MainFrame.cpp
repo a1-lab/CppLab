@@ -30,6 +30,7 @@ MainFrame::MainFrame(wxDocManager* manager,
 	m_auiManager.Update();
 
 	CreateStatusBar(1);
+	//TODO: Full screen mode
 	//ShowFullScreen(true, wxFULLSCREEN_NOCAPTION);
 }
 

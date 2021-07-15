@@ -153,6 +153,7 @@
     <ClCompile Include="src\header\artprovider\CFToolbarArt.cpp" />
     <ClCompile Include="src\source\Application.cpp" />
     <ClCompile Include="src\source\artprovider\CFArtProvider.cpp" />
+    <ClCompile Include="src\source\custom_control\checktree.cpp" />
     <ClCompile Include="src\source\custom_control\TransparentStaticText.cpp" />
     <ClCompile Include="src\source\MainFrame.cpp" />
     <ClCompile Include="src\source\menu\configuration_menu.cpp" />
@@ -169,6 +170,7 @@
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp" />
     <ClInclude Include="src\header\artprovider\CFArtProvider.hpp" />
+    <ClInclude Include="src\header\custom_control\checktree.hpp" />
     <ClInclude Include="src\header\custom_control\TransparentStaticText.hpp" />
     <ClInclude Include="src\header\Ids.h" />
     <ClInclude Include="src\header\MainFrame.hpp" />
