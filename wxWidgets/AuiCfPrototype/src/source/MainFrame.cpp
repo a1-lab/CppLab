@@ -6,6 +6,7 @@
 #include "menu/MainMenu.h"
 #include "toolbar/MainToolbar.h"
 #include "toolbar/ToolbarSize.h"
+#include "CFAuiDockArt.hpp"
 
 BEGIN_EVENT_TABLE(MainFrame, wxFrame)
 /**/EVT_MENU(ID_SHOW_DASHBOARD_RIGHT, MainFrame::OnShowDashboardAtRight)
@@ -22,6 +23,7 @@ MainFrame::MainFrame(wxDocManager* manager,
 	SetThemeEnabled(true);
 
 	m_auiManager.SetManagedWindow(this);
+	m_auiManager.SetArtProvider(new CFAuiDockArt());
 
 	CreateMainMenu();
 	CreateToolBar();
@@ -134,17 +136,14 @@ void MainFrame::CreateToolBar()
 {
 	const Application& app = wxGetApp();
 
-	auto color = m_menuBar->GetBackgroundColour();
 	// We use 16x17 but not 16x16 because
 	//   1. selection highlighting rectangle is the same height as scale control
 	//   2. this rect has the same height and width
 	m_mainToolBar = createMainToolBar(this, FromDIP(wxSize(16, 17)));
-
 	m_auiManager.AddPane(m_mainToolBar, wxAuiPaneInfo().
 		Name("MainToolbar").PaneBorder(false).
 		Caption(app.getText(MAIN_TOOLBAR, MAIN_TOOLBAR_CAPTION, MAIN_TOOLBAR_CAPTION_DEF_VALUE)).
 		ToolbarPane().Top().Row(1));
-
 }
 
 void MainFrame::CreateToolbarSize()

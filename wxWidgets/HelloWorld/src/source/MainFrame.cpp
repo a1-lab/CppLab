@@ -23,11 +23,11 @@ MainFrame::MainFrame(const wxString& title) :
 	helpMenu->Append(wxID_ABOUT, wxT("&About\tF1"),
 		wxT("About"));
 
-	auto menuBar = new wxMenuBar();
+	auto menuBar = new wxMenuBar(wxMB_DOCKABLE);
 	menuBar->Append(fileMenu, wxT("&File"));
 	menuBar->Append(helpMenu, wxT("&Help"));
 	SetMenuBar(menuBar);
-
+	SetBackgroundColour(*wxRED);
 	/*It is also possible to bind handler dynamically*/
 	Connect(wxID_ABOUT, wxEVT_COMMAND_MENU_SELECTED,
 		wxCommandEventHandler(MainFrame::OnAbout));

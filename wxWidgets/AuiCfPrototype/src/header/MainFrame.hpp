@@ -32,7 +32,7 @@ private:
 	wxAuiManager m_auiManager;
 	wxAuiToolBarItemArray prepend_items;
 	wxAuiToolBarItemArray append_items;
-	wxMenuBar* m_menuBar = new wxMenuBar();
+	wxMenuBar* m_menuBar = new wxMenuBar(wxBORDER_NONE);
 	wxAuiToolBar* m_mainToolBar = nullptr;
 	wxAuiToolBar* m_toolbarSize = nullptr;
 

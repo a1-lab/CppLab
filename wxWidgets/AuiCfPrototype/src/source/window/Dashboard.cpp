@@ -1,10 +1,11 @@
 #include "wx/splitter.h"
 #include "wx/propgrid/advprops.h"
 #include "wx/propgrid/manager.h"
-#include "wx/treelist.h"
+#include "wx/aui/aui.h"
 #include "custom_control/checktree.hpp"
 #include "Dashboard.hpp"
 #include "Ids.h"
+#include "CFAuiDockArt.hpp"
 
 Dashboard::Dashboard(wxPanel* parent) : m_parent{ parent }
 {
@@ -33,15 +34,14 @@ void Dashboard::CreateDashboard(wxPanel* parent)
 
 	splitterWindow->SetMinimumPaneSize(150);
 
-	dashboardPanelSizer->Add(splitterWindow, 1, wxGROW | wxLEFT, 2);
+	dashboardPanelSizer->Add(splitterWindow, 1, wxGROW | wxALL, 0);
 
-	auto dashboardTopPanel = new wxAuiNotebook(splitterWindow, wxID_ANY,
-			wxDefaultPosition, wxDefaultSize, wxAUI_NB_TOP | wxAUI_NB_TAB_MOVE | wxNO_BORDER);
+	auto topPanel = new wxPanel(splitterWindow);
 	auto propertyGridPanel = new wxPanel(splitterWindow);
 
-	splitterWindow->SplitHorizontally(dashboardTopPanel, propertyGridPanel, -150);
+	splitterWindow->SplitHorizontally(topPanel, propertyGridPanel, -150);
 
-	CreateDashboardTopPanel(dashboardTopPanel);
+	CreateDashboardTopPanel(topPanel);
 	CreatePropertyGrid(propertyGridPanel);
 }
 
@@ -56,7 +56,8 @@ void Dashboard::CreatePropertyGrid(wxPanel* panel)
 		wxPG_NO_INTERNAL_BORDER //| wxPG_HIDE_CATEGORIES
 	);
 
-	m_propertyControlSizer->Add(m_propertyControl, 1, wxGROW | wxRIGHT, 2);
+	//m_propertyControlSizer->Add(m_propertyControl, 1, wxGROW | wxRIGHT, 2);
+	m_propertyControlSizer->Add(m_propertyControl, 1, wxGROW | wxALL, 0);
 
 	m_propertyControl->Append(new wxPropertyCategory("Main"));
 	m_propertyControl->Append(new wxStringProperty("Label", "Name", "Initial Value"));
@@ -91,8 +92,20 @@ void Dashboard::PopulateTemplatesTest(wxTreeCtrl* templates)
 }
 
 
-void Dashboard::CreateDashboardTopPanel(wxAuiNotebook* auiNotebook)
+void Dashboard::CreateDashboardTopPanel(wxPanel* panel)
 {
+
+	auto sizer = new wxBoxSizer(wxHORIZONTAL);
+	panel->SetSizerAndFit(sizer);
+
+	auto auiNotebook = new wxAuiNotebook(panel, wxID_ANY,
+		wxDefaultPosition, wxDefaultSize, wxAUI_NB_TOP | wxAUI_NB_TAB_MOVE | wxNO_BORDER);
+
+	sizer->Add(auiNotebook, 1, wxGROW | wxALL, 0);
+
+	//wxAuiSimpleTabArt
+	auiNotebook->SetArtProvider(new wxAuiSimpleTabArt());
+
 	auiNotebook->Freeze();
 
 	auto templates = new wxCheckTree(auiNotebook, wxID_ANY,

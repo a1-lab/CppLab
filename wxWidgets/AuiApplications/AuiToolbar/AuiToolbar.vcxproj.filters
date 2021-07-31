@@ -30,7 +30,7 @@
     <ClInclude Include="src\header\Ids.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="src\header\customization\CustomArtProvider.hpp">
+    <ClInclude Include="src\header\customization\CustomAuiDockArt.hpp">
       <Filter>Файлы заголовков\customization</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClCompile Include="src\source\MainFrame.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\source\customization\CustomArtProvider.cpp">
+    <ClCompile Include="src\source\customization\CustomAuiDockArt.cpp">
       <Filter>Исходные файлы\customization</Filter>
     </ClCompile>
   </ItemGroup>

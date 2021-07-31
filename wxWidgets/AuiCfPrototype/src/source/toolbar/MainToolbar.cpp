@@ -15,7 +15,7 @@ wxAuiToolBar* createMainToolBar(wxWindow* parent, const wxSize& iconSize) {
 	auto result = new wxAuiToolBar(parent, wxID_ANY,
 		wxDefaultPosition, wxDefaultSize,
 		wxAUI_TB_DEFAULT_STYLE | //wxAUI_TB_OVERFLOW |
-		wxAUI_TB_HORZ_TEXT
+		wxAUI_TB_HORZ_TEXT | wxAUI_TB_PLAIN_BACKGROUND
 	);
 
 	result->SetToolBitmapSize(iconSize);

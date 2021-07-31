@@ -1,6 +1,5 @@
 #pragma once
 #include "wx/wx.h"
-#include "wx/aui/aui.h"
 #include "wx/treectrl.h"
 
 #define DASHBOARD_PANE_NAME wxT("dashboard")
@@ -12,7 +11,7 @@ public:
 	void Right();
 private:
 	void CreateDashboard(wxPanel* parent);
-	void CreateDashboardTopPanel(wxAuiNotebook* auiNotebook);
+	void CreateDashboardTopPanel(wxPanel* panel);
 	void CreatePropertyGrid(wxPanel* panel);
 	void PopulateTemplatesTest(wxTreeCtrl* templates);
 

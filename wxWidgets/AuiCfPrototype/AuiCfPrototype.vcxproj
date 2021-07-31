@@ -72,19 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
+    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\custom;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
+    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\custom;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
+    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\custom;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
+    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\custom;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -150,9 +150,9 @@
     <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\header\artprovider\CFToolbarArt.cpp" />
     <ClCompile Include="src\source\Application.cpp" />
     <ClCompile Include="src\source\artprovider\CFArtProvider.cpp" />
+    <ClCompile Include="src\source\custom\CFAuiDockArt.cpp" />
     <ClCompile Include="src\source\custom_control\checktree.cpp" />
     <ClCompile Include="src\source\custom_control\TransparentStaticText.cpp" />
     <ClCompile Include="src\source\MainFrame.cpp" />
@@ -170,6 +170,7 @@
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp" />
     <ClInclude Include="src\header\artprovider\CFArtProvider.hpp" />
+    <ClInclude Include="src\header\custom\CFAuiDockArt.hpp" />
     <ClInclude Include="src\header\custom_control\checktree.hpp" />
     <ClInclude Include="src\header\custom_control\TransparentStaticText.hpp" />
     <ClInclude Include="src\header\Ids.h" />

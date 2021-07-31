@@ -1,8 +1,8 @@
 #pragma once
 #include "wx/wx.h"
 #include "wx/docview.h"
-#include "MainFrame.hpp"
 #include "wx/fileconf.h"
+#include "MainFrame.hpp"
 //wxmemdbg must be the last one in include list
 #include "wxmemdbg.h"
 

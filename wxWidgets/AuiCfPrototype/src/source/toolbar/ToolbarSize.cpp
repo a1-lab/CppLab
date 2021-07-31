@@ -11,13 +11,14 @@ wxAuiToolBar* createToolbarSize(wxWindow* parent) {
 	auto result = new wxAuiToolBar(parent, wxID_ANY,
 		wxDefaultPosition, wxDefaultSize,
 		wxAUI_TB_DEFAULT_STYLE | //wxAUI_TB_OVERFLOW
-		wxAUI_TB_HORZ_TEXT
+		wxAUI_TB_HORZ_TEXT | wxAUI_TB_PLAIN_BACKGROUND
 	);
 
 
 	auto heightText = new TransparentStaticText(result, wxID_ANY,
 		app.getText(TOOLBAR_SIZE, HEIGHT_KEY, HEIGHT_DEF_VALUE) + ONE_SPACE);
 	auto heightControl = new wxSpinCtrl(result);
+
 	result->AddControl(heightText);
 	result->AddControl(heightControl);
 

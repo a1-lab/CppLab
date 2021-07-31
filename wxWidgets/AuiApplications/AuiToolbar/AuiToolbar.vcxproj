@@ -151,13 +151,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp" />
-    <ClInclude Include="src\header\customization\CustomArtProvider.hpp" />
+    <ClInclude Include="src\header\customization\CustomAuiDockArt.hpp" />
     <ClInclude Include="src\header\Ids.h" />
     <ClInclude Include="src\header\MainFrame.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\source\Application.cpp" />
-    <ClCompile Include="src\source\customization\CustomArtProvider.cpp" />
+    <ClCompile Include="src\source\customization\CustomAuiDockArt.cpp" />
     <ClCompile Include="src\source\MainFrame.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

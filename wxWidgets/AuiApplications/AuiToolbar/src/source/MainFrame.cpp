@@ -4,6 +4,7 @@
 #include "../header/MainFrame.hpp"
 #include "../header/Ids.h"
 #include "../BlueBall.XPM"
+#include "../header/customization/CustomAuiDockArt.hpp"
 
 BEGIN_EVENT_TABLE(MainFrame, wxFrame)
 /**/EVT_MENU(wxID_ABOUT, MainFrame::OnAbout)
@@ -18,6 +19,7 @@ MainFrame::MainFrame(const wxString& title) :
 	SetIcon(wxIcon(main_icon_xpm));
 	SetMinSize(wxSize(800, 600));
 	m_mgr.SetManagedWindow(this);
+	m_mgr.SetArtProvider(new CustomAuiDockArt());
 
 	CreateMainToolbar();
 	//CreateToolbarSizeAndScale();
@@ -62,7 +64,7 @@ void MainFrame::CreateMainToolbar()
 	wxAuiToolBar* toolbar = new wxAuiToolBar(this, wxID_ANY,
 		wxDefaultPosition, wxDefaultSize,
 		wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW |
-		wxAUI_TB_TEXT | wxAUI_TB_HORZ_TEXT);
+		wxAUI_TB_TEXT | wxAUI_TB_HORZ_TEXT | wxAUI_TB_PLAIN_BACKGROUND);
 
 	toolbar->SetToolBitmapSize(FromDIP(wxSize(16, 16)));
 	wxBitmap tb4_bmp1 = wxArtProvider::GetBitmap(wxART_NORMAL_FILE,
