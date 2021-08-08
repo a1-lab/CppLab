@@ -52,6 +52,12 @@
     <Filter Include="Исходные файлы\custom">
       <UniqueIdentifier>{68e0e009-685a-4ab6-add3-eab7c90e19c8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\docview">
+      <UniqueIdentifier>{3ef2ae1a-1305-4336-b02a-9380babf29f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\docview">
+      <UniqueIdentifier>{5a63e623-028e-4c5d-9e63-cb54eee3d527}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

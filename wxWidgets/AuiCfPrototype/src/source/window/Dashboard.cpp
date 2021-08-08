@@ -103,7 +103,7 @@ void Dashboard::CreateDashboardTopPanel(wxPanel* panel)
 
 	sizer->Add(auiNotebook, 1, wxGROW | wxALL, 0);
 
-	//wxAuiSimpleTabArt
+	//TODO: wxAuiSimpleTabArt
 	auiNotebook->SetArtProvider(new wxAuiSimpleTabArt());
 
 	auiNotebook->Freeze();
