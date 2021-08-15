@@ -1,6 +1,0 @@
-[Menu]
-File=&Файл
-View=&Вид
-[File]
-Exit=Выход\tAlt-X
-ExitHelp=Выход из приложения
