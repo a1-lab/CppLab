@@ -72,19 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\custom;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(ProjectDir)..\wxCustomControls\src\header;$(IncludePath)</IncludePath>
+    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)dependences\include;$(ProjectDir)src\header;$(ProjectDir)src\header\custom;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(ProjectDir)..\wxCustomControls\src\header;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\custom;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(ProjectDir)..\wxCustomControls\src\header;$(IncludePath)</IncludePath>
+    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)dependences\include;$(ProjectDir)src\header;$(ProjectDir)src\header\custom;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(ProjectDir)..\wxCustomControls\src\header;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\custom;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(ProjectDir)..\wxCustomControls\src\header;$(IncludePath)</IncludePath>
+    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)dependences\include;$(ProjectDir)src\header;$(ProjectDir)src\header\custom;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(ProjectDir)..\wxCustomControls\src\header;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)src\header;$(ProjectDir)src\header\custom;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(ProjectDir)..\wxCustomControls\src\header;$(IncludePath)</IncludePath>
+    <IncludePath>$(WXWIN)\include;$(WXWIN)\include\msvc;$(ProjectDir)dependences\include;$(ProjectDir)src\header;$(ProjectDir)src\header\custom;$(ProjectDir)src\header\window;$(ProjectDir)src\header\resource;$(ProjectDir)src\resource;$(ProjectDir)..\wxCustomControls\src\header;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -97,6 +97,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(ProjectDir)dependences\lib\wxCustomControls.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -114,6 +115,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(ProjectDir)dependences\lib\wxCustomControls.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -127,6 +129,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(ProjectDir)dependences\lib\wxCustomControls.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -144,6 +147,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(ProjectDir)dependences\lib\wxCustomControls.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -180,11 +184,6 @@
     <ClInclude Include="src\header\toolbar\ToolbarSize.h" />
     <ClInclude Include="src\header\window\Dashboard.hpp" />
     <ClInclude Include="src\header\wxmemdbg.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\wxCustomControls\wxCustomControls.vcxproj">
-      <Project>{7027395f-1cd9-4de6-92ac-379f8d444292}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
