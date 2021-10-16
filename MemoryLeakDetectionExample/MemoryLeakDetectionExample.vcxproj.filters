@@ -15,7 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MemoryLeakDetectionExample.cpp">
+    <ClInclude Include="src\header\Address.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\console_mem_leak_debug.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\source\Address.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\Application.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

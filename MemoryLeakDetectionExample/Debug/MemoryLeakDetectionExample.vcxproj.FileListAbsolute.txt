@@ -1,1 +1,2 @@
 C:\YB\!github\CppLab\MemoryLeakDetectionExample\Debug\MemoryLeakDetectionExample.exe
+D:\YB\!github\CppLab\MemoryLeakDetectionExample\Debug\MemoryLeakDetectionExample.exe
