@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{4892cef2-0ef3-4ea4-b1ae-b5d28744c74d}</ProjectGuid>
-    <RootNamespace>CustomControl</RootNamespace>
+    <RootNamespace>VGLSandBox</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
