@@ -36,6 +36,9 @@
     <ClCompile Include="src\source\custom-control\BurningWidget.cpp">
       <Filter>Исходные файлы\custom-control</Filter>
     </ClCompile>
+    <ClCompile Include="src\source\custom-control\DesignerPrototype.cpp">
+      <Filter>Исходные файлы\custom-control</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp">
@@ -45,6 +48,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\header\custom-control\BurningWidget.hpp">
+      <Filter>Файлы заголовков\custom-control</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\custom-control\DesignerPrototype.hpp">
       <Filter>Файлы заголовков\custom-control</Filter>
     </ClInclude>
   </ItemGroup>

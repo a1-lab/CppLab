@@ -1,6 +1,6 @@
 #pragma once
-
 #include "wx/wx.h"
+
 
 class BurningWidget : public wxPanel {
 public:

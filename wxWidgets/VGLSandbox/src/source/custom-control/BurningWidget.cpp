@@ -1,3 +1,4 @@
+#include "wx/dcbuffer.h"
 #include "BurningWidget.hpp"
 #include "MainFrame.hpp"
 
@@ -8,6 +9,7 @@ BurningWidget::BurningWidget(wxPanel* parent, int id) :
 	wxPanel(parent, id, wxDefaultPosition, wxSize(-1, 30), wxSUNKEN_BORDER), 
 	m_parent{parent}
 {
+    SetBackgroundStyle(wxBG_STYLE_PAINT);
 	Connect(wxEVT_PAINT, wxPaintEventHandler(BurningWidget::OnPaint));
 	Connect(wxEVT_SIZE, wxSizeEventHandler(BurningWidget::OnSize));
 }
@@ -22,7 +24,14 @@ void BurningWidget::OnPaint(wxPaintEvent& event)
     wxFont font(9, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL,
         wxFONTWEIGHT_NORMAL, false, wxT("Courier 10 Pitch"));
 
-    wxPaintDC dc(this);
+    //wxPaintDC dc(this);
+
+    wxAutoBufferedPaintDC dc(this);
+    dc.SetBrush(wxSystemSettings::GetColour(wxSYS_COLOUR_FRAMEBK));
+
+    //TODO: get client width and heigt
+    dc.DrawRectangle(0, 0, 500, 50);
+
     dc.SetFont(font);
     wxSize size = GetSize();
     int width = size.GetWidth();

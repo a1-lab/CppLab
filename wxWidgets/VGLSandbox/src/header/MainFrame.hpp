@@ -17,5 +17,9 @@ private:
 	wxSlider* m_slider;
 	BurningWidget* m_wid;
 
+	void CreateMenuBar();
+	void AddBurningWidget();
+	void AddDesignerPrototype();
+
 	DECLARE_EVENT_TABLE()
 };

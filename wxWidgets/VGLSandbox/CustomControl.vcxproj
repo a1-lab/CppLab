@@ -161,11 +161,13 @@
   <ItemGroup>
     <ClCompile Include="src\source\Application.cpp" />
     <ClCompile Include="src\source\custom-control\BurningWidget.cpp" />
+    <ClCompile Include="src\source\custom-control\DesignerPrototype.cpp" />
     <ClCompile Include="src\source\MainFrame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp" />
     <ClInclude Include="src\header\custom-control\BurningWidget.hpp" />
+    <ClInclude Include="src\header\custom-control\DesignerPrototype.hpp" />
     <ClInclude Include="src\header\MainFrame.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
