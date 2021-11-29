@@ -36,7 +36,10 @@
     <ClCompile Include="src\source\custom-control\BurningWidget.cpp">
       <Filter>Исходные файлы\custom-control</Filter>
     </ClCompile>
-    <ClCompile Include="src\source\custom-control\DesignerPrototype.cpp">
+    <ClCompile Include="src\source\custom-control\Designer.cpp">
+      <Filter>Исходные файлы\custom-control</Filter>
+    </ClCompile>
+    <ClCompile Include="src\source\custom-control\DesignerScrolled.cpp">
       <Filter>Исходные файлы\custom-control</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,8 +53,14 @@
     <ClInclude Include="src\header\custom-control\BurningWidget.hpp">
       <Filter>Файлы заголовков\custom-control</Filter>
     </ClInclude>
-    <ClInclude Include="src\header\custom-control\DesignerPrototype.hpp">
+    <ClInclude Include="src\header\custom-control\Designer.hpp">
       <Filter>Файлы заголовков\custom-control</Filter>
+    </ClInclude>
+    <ClInclude Include="src\header\custom-control\DesignerScrolled.hpp">
+      <Filter>Файлы заголовков\custom-control</Filter>
+    </ClInclude>
+    <ClInclude Include="src\wxmemdbg.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

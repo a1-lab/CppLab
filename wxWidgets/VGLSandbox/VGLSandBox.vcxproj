@@ -161,14 +161,17 @@
   <ItemGroup>
     <ClCompile Include="src\source\Application.cpp" />
     <ClCompile Include="src\source\custom-control\BurningWidget.cpp" />
-    <ClCompile Include="src\source\custom-control\DesignerPrototype.cpp" />
+    <ClCompile Include="src\source\custom-control\Designer.cpp" />
+    <ClCompile Include="src\source\custom-control\DesignerScrolled.cpp" />
     <ClCompile Include="src\source\MainFrame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\header\Application.hpp" />
     <ClInclude Include="src\header\custom-control\BurningWidget.hpp" />
-    <ClInclude Include="src\header\custom-control\DesignerPrototype.hpp" />
+    <ClInclude Include="src\header\custom-control\Designer.hpp" />
+    <ClInclude Include="src\header\custom-control\DesignerScrolled.hpp" />
     <ClInclude Include="src\header\MainFrame.hpp" />
+    <ClInclude Include="src\wxmemdbg.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
