@@ -1,0 +1,3 @@
+// CanvasInterface is an interface which is used for drawing in "client" code
+// it should be decoupled with implementation classes. It is done with
+// bridge which is Canvas class in our case.
