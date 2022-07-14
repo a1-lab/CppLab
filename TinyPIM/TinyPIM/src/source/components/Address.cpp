@@ -89,10 +89,11 @@ void Address::setAddress(const char* value)
 
 char* Address::copy_string(const char* source)
 {
-	//add 1 becouse of zero termination char. 
+	//add 1 becouse of zero termination char.
 	const int length = std::strlen(source) + 1;
 	char* result = new char[length];
-	strcpy_s(result, length, source);
+    //TODO:strcpy
+//    strcpy(result, length, source);
 
 	return result;
 }
